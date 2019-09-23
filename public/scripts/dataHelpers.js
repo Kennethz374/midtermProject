@@ -27,10 +27,10 @@ module.exports = (db) =>{
 
 
   const createPoll = function(pollData) { // CREATING THE POLL
-    const values = [pollData.title, pollData.description, pollData.endTime]
+    const values = [pollData.title, pollData.description] // pollData.endTime
     return db.query(`
     INSERT INTO polls(creator_id, name, description, end_time)
-    VALUES (1, $1, $2, $3) RETURNING *;`, values)
+    VALUES (1, $1, $2, '2020-01-01 12:45:4.000') RETURNING *;`, values)
     .then (res => {
       console.log(res.rows[0]);
       return res.rows[0];
