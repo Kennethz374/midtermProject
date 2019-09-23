@@ -26,15 +26,24 @@ module.exports = (db) =>{
   //   })
 
 
-  // const createPoll = function(pollData) { // CREATING THE POLL
-  //   return db.pool.query(`
-  //   INSERT INTO polls(name, description, end_time)
-  //   VALUES ($1, $2, $3) RETURNING *`, values)
-  // }
+  const createPoll = function(pollData) { // CREATING THE POLL
+    const values = [pollData.title, pollData.description, pollData.endTime]
+    return db.query(`
+    INSERT INTO polls(creator_id, name, description, end_time)
+    VALUES (1, $1, $2, $3) RETURNING *;`, values)
+    .then (res => {
+      console.log(res.rows[0]);
+      return res.rows[0];
+    })
+  }
+
+// INSERT INTO polls (creator_id, name, description, end_time)
+// VALUES (1, 'billys tinder date', 'Billy got game', '2020-01-01 12:45:4.000');
 
   return {
     randomStringGenerator,
-    firstSQL
+    firstSQL,
+    createPoll
   }
 }
 

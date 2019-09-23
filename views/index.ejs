@@ -41,22 +41,21 @@
       </header>
         <main class="container">
           <section class="new-poll-name">
-            <form class="poll-form-name" action="/polls/:id" method="POST">
-              Title: <textarea name="text" placeholder="name"class="pollForm"></textarea>
-            </form>
+            <form class="poll-form-name" action="/home" method="POST">
+              Title: <textarea name="title" placeholder="name"class="pollForm"></textarea>
+
           </section>
           <br>
           <section class="new-poll-description">
-            <form class="poll-form-description" action="/polls/:id" method="POST">
-              Description: <textarea name="text" placeholder="description" class="pollForm"></textarea>
-            </form>
+              Description: <textarea name="description" placeholder="description" class="pollForm"></textarea>
+
           </section>
           <br>
           <section class="new-poll-end-time">
-            <form class="poll-form-end" action="/polls/:id" method="POST">
-              End In: <textarea name="text" placeholder="" class="pollForm"></textarea>
-            </form>
-            <input type="submit" value="sumbit">
+              End In: <textarea name="endTime" placeholder="" class="pollForm"></textarea>
+
+            <input type="submit" value="submit">
+          </form>
           </section>
           <br>
         </main>
