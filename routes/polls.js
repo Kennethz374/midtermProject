@@ -2,10 +2,13 @@ const express = require('express');
 const router  = express.Router();
 const yelp = require("yelp-fusion");
 module.exports = (db) => {
+
+
 router.get("/", (req, res) => {
   res.render("polls.ejs")
 
 })
+
 
 
 // For voting
@@ -23,6 +26,8 @@ router.post("/", (req, res) => {
   });
 })
 return router;
+
+
 
 }
 
