@@ -23,7 +23,8 @@
     "pg": "^6.4.2",
     "pg-native": "^3.0.0",
     "promise": "^8.0.3",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
