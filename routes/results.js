@@ -3,7 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
 router.get("/", (req, res) => {
-  res.send("THIS IS THE result PAGE WE MADE IT")
+  res.render("results.ejs")
 })
 
 //For randomizing after the voting is completed

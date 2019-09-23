@@ -1,0 +1,18 @@
+nav {
+  background: #101357;
+  height: 70px;
+  width: 100vw;
+  z-index: 3;
+  padding: 1.5em;
+  color: #fbaf08;
+  display: block;
+  flex-direction: row;
+  top: 0;
+  justify-content: space-between;
+}
+
+.logout {
+  float: right;
+}
+
+

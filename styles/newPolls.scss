@@ -1,0 +1,20 @@
+main {
+  justify-content: center;
+  flex-direction: column;
+}
+
+header .main-header {
+  display: flex;
+  // flex-direction: column;
+}
+
+.pollForm {
+  width: 500px;
+}
+
+input[type="submit"] {
+  width: 500px;
+}
+
+
+
