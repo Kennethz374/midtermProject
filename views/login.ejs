@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>Login</title>
 
 
     <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,600,600i&display=swap" rel="stylesheet">
@@ -26,41 +26,34 @@
            Results
           </button>
           <button type="button" class="logoutButton">
-            Logout
+            Register
           </button>
         </span>
       </nav>
 
-      <div class ="newDiv">
-
          <!--Header-->
+
+     <div class="newDiv">
      <header class="main-header">
         <div>
-          <h1>CREATE A NEW POLL</h1>
+          <h1>LOGIN</h1>
         </div>
       </header>
-        <main class="container">
-          <section class="new-poll-name">
-            <form class="poll-form-name" action="/polls/:id" method="POST">
-              Title: <textarea name="text" placeholder="name"class="pollForm"></textarea>
-            </form>
-          </section>
-          <br>
-          <section class="new-poll-description">
-            <form class="poll-form-description" action="/polls/:id" method="POST">
-              Description: <textarea name="text" placeholder="description" class="pollForm"></textarea>
-            </form>
-          </section>
-          <br>
-          <section class="new-poll-end-time">
-            <form class="poll-form-end" action="/polls/:id" method="POST">
-              End In: <textarea name="text" placeholder="" class="pollForm"></textarea>
-            </form>
-            <input type="submit" value="sumbit">
-          </section>
-          <br>
-        </main>
-      </div>
+      <main class="container">
+         <section>
+          <div>
+            <form class="login" action="/login" method="POST">
+            Login:
+            <textarea name="text" placeholder="login" class="loginForm"></textarea>
+            <form class="login" action="/login" method="POST">
+          </div>
+          <div>
+            Password:
+            <textarea name="text" placeholder="password" class="passwordForm"></textarea>
+          </div>
+          <input type="submit" value="Login">
+        </section>
+      </main>
     </div>
   </body>
 </html>

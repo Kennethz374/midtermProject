@@ -4,7 +4,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
 router.get("/", (req, res) => {
-  res.send("THIS IS THE HOME PAGE WE MADE IT");
+  res.render("index.ejs");
 })
 
 //For creating a new poll
