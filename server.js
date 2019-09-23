@@ -14,7 +14,11 @@ const morgan     = require('morgan');
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
-db.connect();
+db.connect(() => {
+  console.log('connected to the midterm database')
+});
+
+const dataHelpers = require("./public/scripts/dataHelpers.js")(db);
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -42,12 +46,12 @@ const resultsRoutes = require("./routes/results");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
-app.use("/home", homeRoutes(db));
-app.use("/login", loginRoutes(db));
-app.use("/polls", pollsRoutes(db));
-app.use("/results", resultsRoutes(db));
+app.use("/api/users", usersRoutes(dataHelpers));
+app.use("/api/widgets", widgetsRoutes(dataHelpers));
+app.use("/home", homeRoutes(dataHelpers));
+app.use("/login", loginRoutes(dataHelpers));
+app.use("/polls", pollsRoutes(dataHelpers));
+app.use("/results", resultsRoutes(dataHelpers));
 // Note: mount other resources here, using the same pattern above
 
 
