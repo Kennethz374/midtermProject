@@ -19,17 +19,17 @@ const renderRestaurant = function(restaurants) {
 }
 
 const createRestaurant = function(yelpInfo) {
-  let $restaurant = $(` <div class="restaurant">
+  let $restaurant = $(` <div class="restaurant" >
   <div class="resContext">
-  <h4>${yelpInfo.name}</h1>
-  <h1>Rating:${yelpInfo.rating}</h1>
-  <h1>Price ${yelpInfo.price}</h1>
-  <h1>Total reviews: ${yelpInfo.review_count}</h1>
-  <h1>${yelpInfo.location.display_address}</h1>
-  <h1>Close: ${yelpInfo.is_closed} </h1>
+  <h5>${yelpInfo.name}<br>
+  Rating:${yelpInfo.rating}<br>
+  Price ${yelpInfo.price}<br>
+  Total reviews: ${yelpInfo.review_count}<br>
+  ${yelpInfo.location.display_address}
+  </h5>
   </div>
-  <div class="pictures">
-  <img src= ${yelpInfo.image_url}>
+  <div class="pictures" >
+  <img src= ${yelpInfo.image_url} style="height:150px">
   </div>
 
 </div>`);
@@ -54,7 +54,7 @@ $(document).ready(function() {
     $(".restaurantContainer").empty();
   })
 
-
+//example restaurant data
   // {"id":"I0r8kMimYW2BY6lINcZRFA","alias":"kishimoto-japanese-kitchen-vancouver",
   // "name":"Kishimoto Japanese Kitchen",
   // "image_url":"https://s3-media1.fl.yelpcdn.com/bphoto/IdqxNBNpSxwTjk4K7gcCqg/o.jpg",
