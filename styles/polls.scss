@@ -1,24 +1,45 @@
+.flexbox-polls-divider {
+  display:flex;
+}
+
+.pollsForm {
+  justify-content: left;
+}
+
+textarea {
+  width:100%;
+}
+
+.container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:40px;
+}
+
+.headerBlock {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 .restaurantContainer {
-  justify-content: center;
+  display:flex;
   flex-direction: column;
 }
 
 .restaurant {
+  border-radius: 15px;
+  border:solid;
+  margin:5px;
   display:flex;
-  flex-direction:row;
-  font-size: 1rem;
-  background-color: white;
-  justify-content:end;
 }
 
 .resContext {
-  display:flex;
-  width:50%;
-  align-items:left
+  flex-basis:80%;
+  align-items:left;
 
 }
 
 .pictures {
-  width:50%;
   align-items: right;
 }

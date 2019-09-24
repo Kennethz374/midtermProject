@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/newPolls.css" type="text/css" />
     <link rel="stylesheet" href="/styles/andrewTest.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
+
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -34,7 +36,8 @@
          <!--Header-->
     <div class="flexbox-polls-divider">
 
-        <div> Andrew is working on this - dont touch ------------------------------------------------------------------------------------
+
+        <div class="pollsForm"> Andrew is working on this - dont touch ------------------------------------------------------------------------------------
 
             ID: <%= pollIDInput.id%>
             creator ID: <%= pollIDInput.creator_id%>
@@ -65,22 +68,22 @@
 
 
 
-      <div>
-        <header class="main-header">
-          <div>
-            <h1>POLLS</h1>
-          </div>
-        </header>
-          <div>
-          <main class="container">
 
+      <div class="container">
+        <section class="headerBlock">
+          <header class="main-header">
+            <div>
+              <h1>POLLS</h1>
+            </div>
+          </header>
        <div>
             <textarea class="inputContent" placeholder="what do you want to eat?"></textarea>
             <br>
             <input id="searchBtn" type="submit"  value= "Search">
+          </section>
+        <section class="restaurantContainer">
+
         </section>
-        <section class="restaurantContainer"></section>
-      </main>
       </div>
     </div>
     </div>
