@@ -82,6 +82,7 @@ module.exports = (db) =>{
   }
 
 
+
   return {
     randomStringGenerator,
     firstSQL,
@@ -91,5 +92,29 @@ module.exports = (db) =>{
     getOptions
   }
 }
+
+
+
+// const $optionWrapper = $('#optionTable');
+
+// const renderOptionsTable = (optionData) => {
+//   optionData.forEach(result => {
+//     $optionWrapper.append(createOptionsTable(result));
+//   })
+//   }
+
+
+// const createOptionsTable = (optionObject) => {
+//   const {id, name, location_id, poll_id, option_id, user_id, ranking_id} = optionObject;
+//   return `<div>
+//   <p> id: ${id} </p>
+//   <p> name: ${name}</p>
+//   <p> location_id: ${location_id}</p>
+//   <p> poll_id: ${poll_id}</p>
+//   <p> option_id: ${option_id}</p>
+//   <p> user_id: ${user_id}</p>
+//   <p> ranking_id: ${ranking_id}</p>
+//   </div>`
+// }
 
 

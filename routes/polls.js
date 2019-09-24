@@ -38,20 +38,4 @@ router.post("/", (req, res) => {
 })
 return router;
 }
-// app.get("/urls/:shortURL", (req, res) => {
 
-//   let templateVars = {
-//     longURL: urlDatabase[req.params.shortURL].longURL,
-//     shortURL: req.params.shortURL,
-//     username: req.session["username"], };
-
-//   let shortURL = req.params.shortURL;
-//   let userID = emailLookup(req.session["username"], users).id;
-//   let urlID = urlDatabase[shortURL].userID;
-
-//   if (userID === urlID) {
-//     res.render("urls_show", templateVars);
-//   } else {
-//     res.status(403).send("No access");
-//   }
-// });

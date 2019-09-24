@@ -47,7 +47,19 @@
 
 
             ----------------------------------------------------
-            <%=   options[5].id%>
+
+            <% for (let par in options) {%>
+
+              <p>id: <%=   options[par].id%></p>
+              <p> name: <%=   options[par].name%></p>
+              <p>location_id: <%=   options[par].location_id%></p>
+              <p>poll_id: <%=   options[par].poll_id%></p>
+              <p>option_id: <%=   options[par].option_id%></p>
+              <p>user_id: <%=   options[par].user_id%></p>
+              <p>ranking_id: <%=   options[par].ranking_id%></p>
+              ---------------------------
+              <%   }%>
+
 
         </div>
 
