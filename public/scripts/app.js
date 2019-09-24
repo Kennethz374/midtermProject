@@ -39,10 +39,13 @@ return $restaurant;
 $(document).ready(function() {
   $("#searchBtn").click(()=>{
     let input = $(".inputContent").val()
+    console.log("CONSOLE LOG", window.location);
     $.ajax({
       method: "POST",
-      ulr:"/polls",
-      data:{input}
+      url:"/polls",
+      data: JSON.stringify({ input }),
+      contentType: "application/json",
+      dataType: "json"
     }).done((data)=>{
       console.log(data);
       renderRestaurant(data)
@@ -65,11 +68,5 @@ $(document).ready(function() {
   // "city":"Vancouver","zip_code":"V5N 4A9","country":"CA","state":"BC",
   // "display_address":["2054 Commercial Drive","Vancouver, BC V5N 4A9","Canada"]},
   // "phone":"+16042555550","display_phone":"+1 604-255-5550","distance":3418.6600056840443}
-
-
-
-
-
-
 
 })
