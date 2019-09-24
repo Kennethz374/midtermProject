@@ -13,14 +13,17 @@ router.get("/", (req, res) => {
 
 // For voting
 router.post("/", (req, res) => {
-  console.log(req.body.inputContent);
+  console.log(req.body);
   const client = yelp.client(process.env.YELP_API);
 
-  client.search({term: req.body.inputContent, location: "vancouver"}).then(response => {
+  client.search(
+    {term: req.body.input,
+     location: "vancouver"
+    }).then(response => {
     const Result = response.jsonBody.businesses;
     const prettyJson = JSON.stringify(Result, null, 4);
     console.log(`total restaurants ${Result.length}`);
-    res.send(prettyJson);
+    res.send(Result);
   }).catch(e => {
     console.log(e);
   });
