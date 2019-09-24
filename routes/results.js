@@ -4,8 +4,9 @@ const router  = express.Router();
 module.exports = (dataHelpers) => {
 router.get("/", (req, res) => {
 
-  dataHelpers.resultSQL()
-  .then(test => res.json({test}));
+  res.render('results');
+  // dataHelpers.resultSQL()
+  // .then(test => res.json({test}));
 });
 
 //For randomizing after the voting is completed
