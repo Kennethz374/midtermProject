@@ -64,15 +64,31 @@ module.exports = (db) =>{
     })
   }
 
-// INSERT INTO polls (creator_id, name, description, end_time)
-// VALUES (1, 'billys tinder date', 'Billy got game', '2020-01-01 12:45:4.000');
+  const getOptions = function(pollIDInput) {
+    const values = [pollIDInput.id];
+    return db.query(`
+    SELECT * FROM options
+    JOIN poll_responses
+    ON poll_responses.option_id = options.id
+    WHERE poll_id = $1;`, values)
+    .then(res => {
+      const result = {
+        pollIDInput,
+        options: res.rows
+      }
+      console.log(result, "RESULT 1")
+      return result
+    })
+  }
+
 
   return {
     randomStringGenerator,
     firstSQL,
     createPoll,
     getPoll,
-    resultSQL
+    resultSQL,
+    getOptions
   }
 }
 
