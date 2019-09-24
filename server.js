@@ -44,14 +44,21 @@ const loginRoutes = require("./routes/login");
 const pollsRoutes = require("./routes/polls");
 const resultsRoutes = require("./routes/results");
 
+const apiResultsRoutes = require("./routes/api/results")
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+// Render HTML
 app.use("/api/users", usersRoutes(dataHelpers));
 app.use("/api/widgets", widgetsRoutes(dataHelpers));
 app.use("/home", homeRoutes(dataHelpers));
 app.use("/login", loginRoutes(dataHelpers));
 app.use("/polls", pollsRoutes(dataHelpers));
 app.use("/results", resultsRoutes(dataHelpers));
+
+// API Routes
+app.use("/api/results", apiResultsRoutes(dataHelpers));
+
 // Note: mount other resources here, using the same pattern above
 
 
