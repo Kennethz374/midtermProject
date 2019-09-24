@@ -39,17 +39,15 @@
           <h1>LOGIN</h1>
         </div>
       </header>
-      <main class="container">
+      <main class="container"  action="/login" method="POST">
          <section>
           <div>
-            <form class="login" action="/login" method="POST">
-            Login:
-            <textarea name="text" placeholder="login" class="loginForm"></textarea>
-            <form class="login" action="/login" method="POST">
+            <form class="login">
+            Login: <br><textarea name="text" placeholder="login" class="loginForm"></textarea>
+            <form class="login">
           </div>
           <div>
-            Password:
-            <textarea name="text" placeholder="password" class="passwordForm"></textarea>
+            Password: <br><textarea name="text" placeholder="password" class="passwordForm"></textarea>
           </div>
           <input type="submit" value="Login">
         </section>
@@ -57,3 +55,5 @@
     </div>
   </body>
 </html>
+
+

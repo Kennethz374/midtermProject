@@ -1,10 +1,12 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (db) => {
+module.exports = (dataHelpers) => {
 router.get("/", (req, res) => {
-  res.render("results.ejs")
-})
+
+  dataHelpers.resultSQL()
+  .then(test => res.json({test}));
+});
 
 //For randomizing after the voting is completed
 router.post("/", (req, res) => {
@@ -20,3 +22,4 @@ router.delete("/", (res, req) => {
 return router;
 
 }
+
