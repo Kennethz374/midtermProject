@@ -42,11 +42,21 @@ module.exports = (db) =>{
   //     return res.rows[0];
   //   })
 
+  const futureTime = function(futureMins) {
+    return db.query(`
+      SELECT current_timestamp + ($1 ||' minutes')::interval;`, futureMins)
+    .then(res => {
+      console.log(res.rows)
+      return res.rows[0]
+    })
+  }
+
 
   const createPoll = function(pollData) { // CREATING THE POLL
     return db.query(`
     INSERT INTO polls(poll_string, creator_id, name, description, end_time)
-    VALUES ($1, 1, $2, $3, '2020-01-01 12:45:4.000') RETURNING *;`, pollData)
+    VALUES ($1, 1, $2, $3, $4) RETURNING *;`, pollData)
+
     .then (res => {
       console.log(res.rows[0]);
       return res.rows[0];
@@ -89,7 +99,8 @@ module.exports = (db) =>{
     createPoll,
     getPoll,
     resultSQL,
-    getOptions
+    getOptions,
+    futureTime
   }
 }
 
