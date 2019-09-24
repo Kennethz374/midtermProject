@@ -5,13 +5,18 @@ module.exports = (dataHelpers) => {
 
 router.get("/:poll_string", (req, res) => {
   dataHelpers.getPoll(req.params.poll_string)
-  .then ((data) => {
-    const templateVars = data;
-    console.log(templateVars, "HELLO");
+  .then (dataHelpers.getOptions)
+  .then ((result) => {
+    const templateVars = result;
+    console.log(templateVars, "tEMPLATEVARS")
     res.render("polls", templateVars)
   })
-  // res.render("polls", templateVars)
+
 })
+    // const templateVars = data;
+    // console.log(templateVars, "HELLO");
+    // res.render("polls", templateVars)
+
 
 
 // For voting
