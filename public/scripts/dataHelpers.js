@@ -3,6 +3,7 @@ const faker = require('faker');
 
 
 module.exports = (db) =>{
+
   const randomStringGenerator = function() {
     let words = faker.random.words();
     words = words.split(" ").join("");
@@ -74,4 +75,5 @@ module.exports = (db) =>{
     resultSQL
   }
 }
+
 

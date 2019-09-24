@@ -3,15 +3,14 @@ const router  = express.Router();
 const yelp = require("yelp-fusion");
 module.exports = (dataHelpers) => {
 
-
-router.get("/", (req, res) => {
-  res.render("polls.ejs")
-
-})
-
 router.get("/:poll_string", (req, res) => {
-  const getDataPoll = dataHelpers.getPoll(req.params.poll_string);
-  res.render("polls", getDataPoll)
+  dataHelpers.getPoll(req.params.poll_string)
+  .then ((data) => {
+    const templateVars = data;
+    console.log(templateVars, "HELLO");
+    res.render("polls", templateVars)
+  })
+  // res.render("polls", templateVars)
 })
 
 

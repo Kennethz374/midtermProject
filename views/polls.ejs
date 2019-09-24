@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/newPolls.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/andrewTest.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -19,26 +19,41 @@
 
   <body>
      <!-- Top nav bar (fixed) -->
-     <nav class="navigation">
-        <span>AppTitle</span>
-        <span class="logout">
-          <button type="button" class="lesultsButton">
-           Results
-          </button>
-          <button type="button" class="logoutButton">
-            Logout
-          </button>
-        </span>
-      </nav>
+    <nav class="navigation">
+      <span>AppTitle</span>
+      <span class="logout">
+        <button type="button" class="lesultsButton">
+          Results
+        </button>
+        <button type="button" class="logoutButton">
+          Logout
+        </button>
+      </span>
+    </nav>
 
          <!--Header-->
-     <header class="main-header">
-        <div>
-          <h1>POLLS</h1>
-        </div>
-      </header>
+    <div class="flexbox-polls-divider">
+      <div> Andrew is working on this - dont touch ------------------------------------------------------------------------------------
+
+          ID: <%= id%>
+          creator ID: <%= creator_id%>
+          poll string: <%= poll_string%>
+          name of poll: <%= name%>
+          description of poll: <%= description%>
+          start time: <%= start_time%>
+          end time: <%= end_time%>
+      </div>
+
+
+
       <div>
-      <main class="container">
+        <header class="main-header">
+          <div>
+            <h1>POLLS</h1>
+          </div>
+        </header>
+          <div>
+          <main class="container">
 
        <div>
             <textarea class="inputContent" placeholder="what do you want to eat?"></textarea>
@@ -48,6 +63,8 @@
         <section class="restaurantContainer"></section>
       </main>
       </div>
+    </div>
+    </div>
   </body>
 
 </html>
