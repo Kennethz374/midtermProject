@@ -47,21 +47,23 @@ Description: <%= pollIDInput.description%><br>
 Start time: <%= pollIDInput.start_time%><br>
 End time: <%= pollIDInput.end_time%>
 
-<div class="option">
-  <p>Option 1</p>
+
+<div ondragover="onDragOver(event);">
+  <div id= "option1" class="option" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <p>Option 1</p>
 
 </div>
 
-<div class="option">
+<div id= "option2" class="option" ondrop="drop(event)" ondragover="allowDrop(event)">
     <p>Option 2</p>
 
 </div>
 
-<div class="option">
+<div id= "option3" class="option" ondrop="drop(event)" ondragover="allowDrop(event)">
     <p>Option 3</p>
 
 </div>
-
+</div>
 <button>Done</button>
 
 <% for (let par in options) {%>
