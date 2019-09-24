@@ -37,6 +37,10 @@
     <div class="flexbox-polls-divider">
 
 
+      </div>
+
+
+
 <div class="pollsForm"> Kenneth is working on this - dont touch-----------<br>
 
 ID: <%= pollIDInput.id%><br>
@@ -63,6 +67,27 @@ End time: <%= pollIDInput.end_time%>
 </div>
 
 <form method="POST" action='/result/<%= pollIDInput.poll_string %>'><button>Done</button></form>
+
+      <div>
+        <header class="main-header">
+            <table style="width:100%">
+                <tr>
+                  <th>Poll Name</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td><%= poll_string %></td>
+                  <td><%= name %></td>
+                  <td><%= description %></td>
+                </tr>
+              </table>
+          <div>
+            <h1>POLLS</h1>
+          </div>
+        </header>
+          <div>
+          <main class="container">
 
 <% for (let par in options) {%>
 
