@@ -33,21 +33,25 @@
 
          <!--Header-->
     <div class="flexbox-polls-divider">
-      <div> Andrew is working on this - dont touch ------------------------------------------------------------------------------------
 
-          ID: <%= id%>
-          creator ID: <%= creator_id%>
-          poll string: <%= poll_string%>
-          name of poll: <%= name%>
-          description of poll: <%= description%>
-          start time: <%= start_time%>
-          end time: <%= end_time%>
       </div>
 
 
 
       <div>
         <header class="main-header">
+            <table style="width:100%">
+                <tr>
+                  <th>Poll Name</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td><%= poll_string %></td>
+                  <td><%= name %></td>
+                  <td><%= description %></td>
+                </tr>
+              </table>
           <div>
             <h1>POLLS</h1>
           </div>

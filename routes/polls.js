@@ -4,13 +4,16 @@ const yelp = require("yelp-fusion");
 module.exports = (dataHelpers) => {
 
 router.get("/:poll_string", (req, res) => {
-  dataHelpers.getPoll(req.params.poll_string)
-  .then ((data) => {
-    const templateVars = data;
-    console.log(templateVars, "HELLO");
-    res.render("polls", templateVars)
-  })
-  // res.render("polls", templateVars)
+  console.log(req.params.poll_string)
+
+  dataHelpers.getActivePoll(req.params.poll_string)
+    .then ((data) => {
+          if (data.length > 0) {
+            return res.render("polls", data[0])
+          } else {
+            return res.redirect('/home');
+          }
+        })
 })
 
 

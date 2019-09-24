@@ -21,7 +21,7 @@ VALUES
 
 INSERT INTO polls (creator_id, poll_string, name, description, end_time)
 VALUES
-(1, 'DuckDuckGoose', 'Food Aventures on Granville', 'Granville food is the best in Vancouver. Lets check it out.', '2020-01-01 12:45:34.000'),
+(1, 'duckduckgoose', 'Food Aventures on Granville', 'Granville food is the best in Vancouver. Lets check it out.', '2020-01-01 12:45:34.000'),
 (2, 'GingeraleWalletFund', 'Lunch at Metrotown', 'Metrotown is the holy grail of malls', '2020-01-01 12:45:34.000'),
 (3, 'AllMyLifeCamera', 'Dinner with Dad', 'Dad is coming to town and I want to eat with dad', '2020-01-01 12:45:34.000'),
 (4, 'PlasticMagicChair', 'Foodtrucks', 'Foodtruck even is in Vancouver, lets eat.', '2020-01-01 12:45:34.000'),

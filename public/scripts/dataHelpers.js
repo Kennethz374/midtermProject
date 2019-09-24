@@ -53,8 +53,8 @@ module.exports = (db) =>{
     })
   }
 
-  const getPoll = function(shortURL) {
-    const values = [shortURL];
+  const getPoll = function(poll_string) {
+    const values = [poll_string];
     return db.query(`SELECT *
     FROM polls
     WHERE poll_string = $1;`, values)
@@ -64,6 +64,27 @@ module.exports = (db) =>{
     })
   }
 
+  const getActivePolls = function(shortURL) {
+    return db.query(` SELECT *
+    FROM polls
+    WHERE end_time > NOW();`)
+    .then (res => {
+      return res.rows;
+    })
+  }
+
+  const getActivePoll = function(shortURL) {
+    const values = [shortURL];
+    return db.query(` SELECT *
+    FROM polls
+    WHERE end_time > NOW()
+    AND poll_string = $1;`, values)
+    .then (res => {
+      return res.rows;
+    })
+  }
+
+
 // INSERT INTO polls (creator_id, name, description, end_time)
 // VALUES (1, 'billys tinder date', 'Billy got game', '2020-01-01 12:45:4.000');
 
@@ -72,7 +93,8 @@ module.exports = (db) =>{
     firstSQL,
     createPoll,
     getPoll,
-    resultSQL
+    resultSQL,
+    getActivePoll
   }
 }
 
