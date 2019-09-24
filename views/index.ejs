@@ -39,23 +39,36 @@
           <h1>CREATE A NEW POLL</h1>
         </div>
       </header>
-        <main class="container">
+        <main class="container" action="/home" method="POST">
           <section class="new-poll-name">
             <form class="poll-form-name" action="/home" method="POST">
-              Title: <textarea name="title" placeholder="name"class="pollForm"></textarea>
-
+              Title: <br><textarea name="title" placeholder="name"class="pollForm"></textarea>
+            </form>
           </section>
-          <br>
+
           <section class="new-poll-description">
-              Description: <textarea name="description" placeholder="description" class="pollForm"></textarea>
-
+            <form class="poll-form-description">
+              Description: <br><textarea name="description" placeholder="description" class="pollForm"></textarea>
+            </form>
           </section>
           <br>
-          <section class="new-poll-end-time">
-              End In: <textarea name="endTime" placeholder="" class="pollForm"></textarea>
-
-            <input type="submit" value="submit">
-          </form>
+          <section class="new-poll-end">
+            <form class="poll-form-end">
+              End In:
+              <select name="form-end">
+                  <option value="volvo">3 mins</option>
+                  <option value="saab">5 mins</option>
+                  <option value="fiat">10 mins</option>
+                  <option value="audi">15 mins</option>
+                  <option value="audi">30 mins</option>
+                  <option value="audi">60 mins</option>
+                  <option value="audi">6 hours</option>
+                  <option value="audi">24 hours</option>
+                  <option value="audi">48 hours</option>
+                </select>
+                <br><br>
+            </form>
+            <input type="submit" value="SUBMIT">
           </section>
           <br>
         </main>
