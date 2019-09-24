@@ -15,6 +15,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/redirection.js"></script>
   </head>
 
   <body>
@@ -22,9 +23,11 @@
      <nav class="navigation">
         <span>AppTitle</span>
         <span class="logout">
-          <button type="button" class="lesultsButton">
-           Results
+          <form action="/results" method="GET">
+            <button type="submit" class="resultsButton" id="results-button">
+             Results
           </button>
+          </form>
           <button type="button" class="logoutButton">
             Logout
           </button>
@@ -42,18 +45,18 @@
         <main class="container" >
             <form class="poll-form-name" action="/home" method="POST">
 
-              Title: <br><textarea name="title" placeholder="name"class="pollForm"></textarea>
+              <h4>Title:</h4> <br><textarea name="title" placeholder="name"class="pollForm"></textarea>
 
 
           <section class="new-poll-description"></section>
 
-              Description: <br><textarea name="description" placeholder="description" class="pollForm"></textarea>
+              <h4>Description:</h4> <br><textarea name="description" placeholder="description" class="pollForm"></textarea>
 
           </section>
           <br>
           <section class="new-poll-end">
 
-              End In:
+              <h4 class="endIn">End In:</h4>
               <select name="form-end">
                   <option value="volvo">3 mins</option>
                   <option value="saab">5 mins</option>

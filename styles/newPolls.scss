@@ -51,6 +51,17 @@ input[type="submit"] {
   border-color: #101357;
 }
 
+.new-poll-end {
+  display:flex;
+  flex-direction: column;
+}
 
+.endIn {
+  margin-bottom: 15px;
+}
+
+[name = form-end] {
+  cursor: pointer;
+}
 
 
