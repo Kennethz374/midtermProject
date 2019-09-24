@@ -25,24 +25,22 @@ input[type="submit"] {
 }
 
 .poll-form-name {
-
-    background: transparent;
-    border: none;
-    width: 100%;
-
-  margin-bottom: 15px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .poll-form-description {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .poll-form-end {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .poll-form-end {
-  margin-left: 8em;
+  margin-left: 1em;
 }
 
 [name = 'text'] {
@@ -57,7 +55,7 @@ input[type="submit"] {
 }
 
 .endIn {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 [name = form-end] {
