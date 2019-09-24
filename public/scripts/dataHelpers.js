@@ -104,7 +104,8 @@ module.exports = (db) =>{
     createPoll,
     getPoll,
     resultSQL,
-    getActivePoll
+    getActivePoll,
+    futureTime
   }
 }
 

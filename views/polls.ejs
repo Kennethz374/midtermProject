@@ -43,13 +43,7 @@
 
 <div class="pollsForm"> Kenneth is working on this - dont touch-----------<br>
 
-ID: <%= pollIDInput.id%><br>
-creator ID: <%= pollIDInput.creator_id%><br>
-poll string: <%= pollIDInput.poll_string%><br>
-Name of poll: <%= pollIDInput.name%><br>
-Description: <%= pollIDInput.description%><br>
-Start time: <%= pollIDInput.start_time%><br>
-End time: <%= pollIDInput.end_time%>
+
 
 <div class="option">
   <p>Option 1</p>
@@ -66,7 +60,7 @@ End time: <%= pollIDInput.end_time%>
 
 </div>
 
-<form method="POST" action='/result/<%= pollIDInput.poll_string %>'><button>Done</button></form>
+
 
       <div>
         <header class="main-header">
@@ -89,18 +83,8 @@ End time: <%= pollIDInput.end_time%>
           <div>
           <main class="container">
 
-<% for (let par in options) {%>
 
-  <p>id: <%=   options[par].id%></p>
-  <p> name: <%=   options[par].name%></p>
-  <p>location_id: <%=   options[par].location_id%></p>
-  <p>poll_id: <%=   options[par].poll_id%></p>
-  <p>option_id: <%=   options[par].option_id%></p>
-  <p>user_id: <%=   options[par].user_id%></p>
-  <p>ranking_id: <%=   options[par].ranking_id%></p>
-              ---------------------------
-<%   }%>
-
+              <form method="POST" action='/result/<%= poll_string %>'><button>Done</button></form>
 
 </div>
 

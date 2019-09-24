@@ -15,9 +15,6 @@ router.get("/:poll_string", (req, res) => {
           }
         })
 })
-    // const templateVars = data;
-    // console.log(templateVars, "HELLO");
-    // res.render("polls", templateVars)
 
 
 
