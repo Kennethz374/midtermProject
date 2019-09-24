@@ -17,20 +17,22 @@ module.exports = (db) =>{
     })
   }
 
-  // const addUser =  function(user) {
-  //   const values = [user.name, user.email, user.password]
-  //   return db.pool.query(`INSERT INTO users(name, email, password)
-  //   VALUES ($1, $2, $3) RETURNING *`, values)
-  //   .then (res => {
-  //     return res.rows[0];
-  //   })
-
 
   const createPoll = function(pollData) { // CREATING THE POLL
-    const values = [pollData.title, pollData.description] // pollData.endTime
     return db.query(`
-    INSERT INTO polls(creator_id, name, description, end_time)
-    VALUES (1, $1, $2, '2020-01-01 12:45:4.000') RETURNING *;`, values)
+    INSERT INTO polls(poll_string, creator_id, name, description, end_time)
+    VALUES ($1, 1, $2, $3, '2020-01-01 12:45:4.000') RETURNING *;`, pollData)
+    .then (res => {
+      console.log(res.rows[0]);
+      return res.rows[0];
+    })
+  }
+
+  const getPoll = function(shortURL) {
+    const values = [shortURL];
+    return db.query(`SELECT *
+    FROM polls
+    WHERE poll_string = $1;`, values)
     .then (res => {
       console.log(res.rows[0]);
       return res.rows[0];
@@ -43,7 +45,8 @@ module.exports = (db) =>{
   return {
     randomStringGenerator,
     firstSQL,
-    createPoll
+    createPoll,
+    getPoll
   }
 }
 

@@ -24,6 +24,7 @@ CREATE TABLE users (
 CREATE TABLE polls (
   id SERIAL PRIMARY KEY NOT NULL,
   creator_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  poll_string VARCHAR(255) NOT NULL,
   name VARCHAR (255) NOT NULL,
   description TEXT NOT NULL,
   start_time TIMESTAMP DEFAULT now(),

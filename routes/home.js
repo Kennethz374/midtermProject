@@ -9,9 +9,10 @@ module.exports = (dataHelpers) => {
     //For creating a new poll
   router.post("/", (req, res) => {
     const newPollid = dataHelpers.randomStringGenerator();
-    const pollCreation = dataHelpers.createPoll(req.body);
+    const values = [newPollid, req.body.title, req.body.description] //, req.body.endTime
+    const pollCreation = dataHelpers.createPoll(values);
     console.log(pollCreation)
-    res.redirect("/" + newPollid);
+    res.redirect("/polls/" + newPollid);
     // dataHelpers.firstSQL()
     // .then((test) => {
     //   res.send(test)
