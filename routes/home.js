@@ -8,6 +8,7 @@ module.exports = (dataHelpers) => {
 
     //For creating a new poll
   router.post("/", (req, res) => {
+    console.log("HELLO")
     const newPollid = dataHelpers.randomStringGenerator();
     const values = [newPollid, req.body.title, req.body.description] //, req.body.endTime
     const pollCreation = dataHelpers.createPoll(values);
