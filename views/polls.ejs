@@ -62,7 +62,7 @@ End time: <%= pollIDInput.end_time%>
 
 </div>
 
-<button>Done</button>
+<form method="POST" action='/result/<%= pollIDInput.poll_string %>'><button>Done</button></form>
 
 <% for (let par in options) {%>
 
