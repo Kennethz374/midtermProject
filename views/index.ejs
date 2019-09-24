@@ -39,21 +39,20 @@
           <h1>CREATE A NEW POLL</h1>
         </div>
       </header>
-        <main class="container" action="/home" method="POST">
-          <section class="new-poll-name">
+        <main class="container" >
             <form class="poll-form-name" action="/home" method="POST">
-              <h4>Title:</h4> <br><textarea name="title" placeholder="name"class="pollForm"></textarea>
-            </form>
-          </section>
 
-          <section class="new-poll-description">
-            <form class="poll-form-description">
-              <h4>Description:</h4> <br><textarea name="description" placeholder="description" class="pollForm"></textarea>
-            </form>
+              Title: <br><textarea name="title" placeholder="name"class="pollForm"></textarea>
+
+
+          <section class="new-poll-description"></section>
+
+              Description: <br><textarea name="description" placeholder="description" class="pollForm"></textarea>
+
           </section>
           <br>
           <section class="new-poll-end">
-            <form class="poll-form-end">
+
               End In:
               <select name="form-end">
                   <option value="volvo">3 mins</option>

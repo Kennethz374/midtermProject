@@ -8,19 +8,13 @@ module.exports = (dataHelpers) => {
 
     //For creating a new poll
   router.post("/", (req, res) => {
+    console.log("HELLO")
     const newPollid = dataHelpers.randomStringGenerator();
     const values = [newPollid, req.body.title, req.body.description] //, req.body.endTime
     const pollCreation = dataHelpers.createPoll(values);
     console.log(pollCreation)
     res.redirect("/polls/" + newPollid);
-    // dataHelpers.firstSQL()
-    // .then((test) => {
-    //   res.send(test)
-    // })
-  // NEED TO SEND A SQL REQUEST IN DB TO CREATE AND RENDER THE TWEET
 
-  // NEED TO SEND A SQL REQUEST IN DB TO CREATE AND RENDER
- //
 
   })
 
