@@ -4,10 +4,21 @@
 }
 
 .restaurant {
-  flex-direction:column;
-  display:block;
+  display:flex;
+  flex-direction:row;
   font-size: 1rem;
   background-color: white;
+  justify-content:end;
 }
 
+.resContext {
+  display:flex;
+  width:50%;
+  align-items:left
 
+}
+
+.pictures {
+  width:50%;
+  align-items: right;
+}
