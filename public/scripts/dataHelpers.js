@@ -18,6 +18,7 @@ module.exports = (db) =>{
   }
 
 
+
   const resultSQL = function() {
     return db.query(`
     SELECT polls.name as poll_name, options.name as food_option, rankings.id as ranking
