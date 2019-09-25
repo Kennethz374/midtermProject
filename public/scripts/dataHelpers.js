@@ -93,15 +93,15 @@ module.exports = (db) =>{
   const getRankings = function(shortURL) {
     const values = [shortURL];
     console.log("Values:", values)
-    return db.query(` SELECT polls.name, polls.description, poll_responses.name, options.name as food, poll_responses.ranking_id
+    return db.query(` SELECT polls.name, polls.description, poll_responses.name as user, options.name as food, poll_responses.ranking_id
     FROM polls
     JOIN poll_responses ON polls.id = poll_id
     JOIN options ON options.id = option_id
     WHERE poll_string = $1
     GROUP BY polls.name, polls.description, poll_responses.ranking_id, poll_responses.name, options.name;`, values)
     .then (res => {
-      console.log('getRankings:', res)
-      return res.rows[0];
+      console.log('getRankings')
+      return res.rows;
     })
   }
 
@@ -118,8 +118,8 @@ module.exports = (db) =>{
   GROUP BY ranking_id
   ORDER BY ranking_id;`)
     .then (res => {
-      console.log('THIS', res);
-      return res.rows[0];
+      console.log('total rankings');
+      return res.rows;
     })
   }
 

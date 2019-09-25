@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Home Page</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,600,600i&display=swap" rel="stylesheet">
 
@@ -11,70 +13,60 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/newPolls.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/sizing.css" type="text/css" />
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/redirection.js"></script>
-  </head>
+</head>
 
-  <body>
-     <!-- Top nav bar (fixed) -->
-     <nav class="navigation">
-        <span>AppTitle</span>
-        <span class="logout">
-          <form action="/results" method="GET">
-            <button type="submit" class="resultsButton" id="results-button">
-             Results
-          </button>
-          </form>
-          <button type="button" class="logoutButton">
-            Logout
-          </button>
-        </span>
-      </nav>
-
-      <div class ="newDiv">
-
-         <!--Header-->
-     <header class="main-header">
-        <div>
-          <h1>CREATE A NEW POLL</h1>
+<body>
+    <% include partials/_header %>
+        <div class="newDiv">
+            <div>
+                <h1>CREATE A NEW POLL</h1>
+            </div>
+            <main class="container">
+                <form class="poll-form-name" action="/home" method="POST">
+                    <h4>Title:</h4>
+                    <br>
+                    <textarea name="title" placeholder="name" class="pollForm"></textarea>
+                    <section class="new-poll-description"></section>
+                    <h4>Description:</h4>
+                    <br>
+                    <textarea name="description" placeholder="description" class="pollForm"></textarea>
+                    </section>
+                    <br>
+                    <section class="new-poll-end">
+                        <h4 class="endIn">End In:</h4>
+                        <select name="formEnd">
+                            <option value="3">3 mins</option>
+                            <option value="5">5 mins</option>
+                            <option value="10">10 mins</option>
+                            <option value="15">15 mins</option>
+                            <option value="30">30 mins</option>
+                            <option value="60">60 mins</option>
+                            <option value="360">6 hours</option>
+                            <option value="1440">24 hours</option>
+                            <option value="2880">48 hours</option>
+                        </select>
+                        <br>
+                        <br>
+                </form>
+                <input type="submit" value="SUBMIT">
+                </section>
+                <br>
+            </main>
         </div>
-      </header>
-        <main class="container" >
-            <form class="poll-form-name" action="/home" method="POST">
+        </div>
 
-              <h4>Title:</h4> <br><textarea name="title" placeholder="name"class="pollForm"></textarea>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+</body>
 
-          <section class="new-poll-description"></section>
-
-              <h4>Description:</h4> <br><textarea name="description" placeholder="description" class="pollForm"></textarea>
-
-          </section>
-          <br>
-          <section class="new-poll-end">
-
-              <h4 class="endIn">End In:</h4>
-              <select name="formEnd">
-                  <option value="3">3 mins</option>
-                  <option value="5">5 mins</option>
-                  <option value="10">10 mins</option>
-                  <option value="15">15 mins</option>
-                  <option value="30">30 mins</option>
-                  <option value="60">60 mins</option>
-                  <option value="360">6 hours</option>
-                  <option value="1440">24 hours</option>
-                  <option value="2880">48 hours</option>
-                </select>
-                <br><br>
-            </form>
-            <input type="submit" value="SUBMIT">
-          </section>
-          <br>
-        </main>
-      </div>
-    </div>
-  </body>
 </html>
