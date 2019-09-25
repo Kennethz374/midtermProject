@@ -29,12 +29,6 @@ function onDragOver(event) {
   event.preventDefault();
 }
 
-// function ondragover(event) {
-//   const id = event
-//   .dataTranfer
-//   .getData("text")
-//   alert(id);
-// }
 
 
 
