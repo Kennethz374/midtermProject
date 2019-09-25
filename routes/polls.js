@@ -8,12 +8,12 @@ router.get("/:poll_string", (req, res) => {
 
   dataHelpers.getActivePoll(req.params.poll_string)
     .then ((data) => {
-          if (data.length > 0) {
-            return res.render("polls", data[0])
-          } else {
-            return res.redirect('/home');
-          }
-        })
+      if (data.length > 0) {
+        return res.render("polls", data[0])
+      } else {
+        return res.redirect('/results');
+      }
+    })
 })
 
 
