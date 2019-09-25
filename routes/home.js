@@ -14,15 +14,20 @@ module.exports = (dataHelpers) => {
     const newPollid = dataHelpers.randomStringGenerator();
     const cookieID = req.cookies.sessionUserID
     const futureValues = [req.body.formEnd]
-    dataHelpers.futureTime(futureValues)
-    .then((data) => {
-      const values = [newPollid, cookieID, req.body.title, req.body.description, data['?column?']]
-      const pollCreation = dataHelpers.createPoll(values)
-      .then((data2) => {
-        res.redirect("/polls/" + newPollid);
-      })
 
-    })
+    if (cookieID) {
+      dataHelpers.futureTime(futureValues)
+      .then((data) => {
+        const values = [newPollid, cookieID, req.body.title, req.body.description, data['?column?']]
+        const pollCreation = dataHelpers.createPoll(values)
+        .then((data2) => {
+          res.redirect("/polls/" + newPollid);
+        })
+       })
+      }
+      else {
+        res.redirect("/login")
+      }
 
   })
 
