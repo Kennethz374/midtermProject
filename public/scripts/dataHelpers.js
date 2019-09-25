@@ -6,7 +6,7 @@ module.exports = (db) =>{
 
   const randomStringGenerator = function() {
     let words = faker.random.words();
-    words = words.split(" ").join("");
+    words = words.split(" ").join("").toLowerCase();
     return words
   }
 
