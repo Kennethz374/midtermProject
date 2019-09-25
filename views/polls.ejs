@@ -24,7 +24,7 @@
     <nav class="navigation">
       <span>AppTitle</span>
       <span class="logout">
-        <button type="button" class="lesultsButton">
+        <button type="button" class="resultsButton">
           Results
         </button>
         <button type="button" class="logoutButton">
@@ -62,10 +62,6 @@
 
 </div>
 </div>
-<button>Done</button>
-
-<% for (let par in options) {%>
-
 
       <div>
         <header class="main-header">
@@ -89,9 +85,11 @@
           <main class="container">
 
 
-              <form method="POST" action='/result/<%= poll_string %>'><button>Done</button></form>
+
 
 </div>
+
+<form method="POST" action='/results/<%= poll_string %>'><button>Done</button></form>
 
 
 
