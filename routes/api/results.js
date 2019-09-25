@@ -11,7 +11,7 @@ module.exports = (dataHelpers) => {
       .then ((data1) => {
         var t = {rankings:data,totalrankings: data1};
         console.log("ROHIT ",t);
-        res.render("results");
+        res.render("results", t);
       })
 
     })
