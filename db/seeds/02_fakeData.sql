@@ -29,13 +29,13 @@ VALUES
 (2, 'runarrowcasper', 'Golf Lunch', 'I like golfing when its cold out', '2020-01-01 12:45:34.000'),
 (1, 'mincedmayonaise', 'Tinder Date', 'Tinder dates need to be preplanned or I am set up for disaster', '2020-01-01 12:45:34.000');
 
-INSERT INTO options (name, location_id)
+INSERT INTO options (name, location_id, rating, price, total_review, address)
 VALUES
-('Chipotle', 1),
-('Boston Pizza', 2),
-('Tim Hortons', 3),
-('Sushi Mura', 4),
-('Pho Express', 5);
+('Sprezzatura', 1, 3.5, null, 12, '265 Kingsway, Vancouver, BC V5T 3J5, Canada'),
+('Tuc Craft Kitchen', 2, 4.5, '$$', 929, '60W Cordova Street, Vancouver, BC, V6B 1C9, Canada'),
+('The Flying Pig -Yale Town', 3, 5, '$$', 1061,'1168 Hamilton Street, Unit 104, Vancouver, BC V6B 2S2, Canada'),
+('6 Degree Eatery', 4, 4.5, '$$', 152, '1590 Coal Harbour Quay, Vancouver, BC V6G 3G1, Canada'),
+('Oyster Express', 5, 4.5, '$$', 147, '296 Keefer Street, Vancouver, BC V6A 1X5, Canada');
 
 
 INSERT INTO rankings (id)
@@ -52,10 +52,10 @@ VALUES
 (1, 3, 1, 'Max', 3),
 (1, 1, 2, 'Billy', 1),
 (1, 3, 2, 'Billy', 2),
-(1, 4, 2, 'Billy', 3),
+(1, 2, 2, 'Billy', 3),
 (1, 1, 3, 'Andrew', 1),
 (1, 2, 3, 'Andrew', 2),
-(1, 5, 3, 'Andrew', 3);
+(1, 3, 3, 'Andrew', 3);
 
 
 -- Poll 2 Data
@@ -63,36 +63,36 @@ INSERT INTO poll_responses (poll_id, option_id, user_id, name, ranking_id)
 VALUES
 (2, 3, 1, 'Max', 1),
 (2, 2, 1, 'Max', 2),
-(2, 5, 1, 'Max', 3),
+(2, 1, 1, 'Max', 3),
 (2, 1, 4, 'Jack', 1),
 (2, 3, 4, 'Jack', 2),
-(2, 4, 4, 'Jack', 3),
+(2, 3, 4, 'Jack', 3),
 (2, 1, 3, 'Andrew', 1),
 (2, 2, 3, 'Andrew', 2),
-(2, 5, 3, 'Andrew', 3);
+(2, 3, 3, 'Andrew', 3);
 
 -- Poll 3 Data
 INSERT INTO poll_responses (poll_id, option_id, user_id, name, ranking_id)
 VALUES
-(3, 5, 4, 'Jack', 1),
+(3, 1, 4, 'Jack', 1),
 (3, 3, 4, 'Jack', 2),
-(3, 4, 4, 'Jack', 3),
-(3, 5, 5, 'Lebron', 1),
+(3, 1, 4, 'Jack', 3),
+(3, 1, 5, 'Lebron', 1),
 (3, 2, 5, 'Lebron', 2),
 (3, 1, 5, 'Lebron', 3);
 
 -- Poll 4 Data
 INSERT INTO poll_responses (poll_id, option_id, user_id, name, ranking_id)
 VALUES
-(4, 5, 5, 'Lebron', 1),
+(4, 1, 5, 'Lebron', 1),
 (4, 2, 5, 'Lebron', 2),
-(4, 1, 5, 'Lebron', 3),
-(4, 5, 4, 'Jack', 1),
+(4, 3, 5, 'Lebron', 3),
+(4, 1, 4, 'Jack', 1),
 (4, 3, 4, 'Jack', 2),
-(4, 4, 4, 'Jack', 3),
+(4, 2, 4, 'Jack', 3),
 (4, 1, 1, 'Max', 1),
 (4, 2, 1, 'Max', 2),
 (4, 3, 1, 'Max', 3),
-(4, 2, 2, 'Billy', 1),
-(4, 3, 2, 'Billy', 2),
-(4, 4, 2, 'Billy', 3);
+(4, 1, 2, 'Billy', 1),
+(4, 2, 2, 'Billy', 2),
+(4, 3, 2, 'Billy', 3);

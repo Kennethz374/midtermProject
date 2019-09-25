@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS polls CASCADE;
 DROP TABLE IF EXISTS poll_responses CASCADE;
 DROP TABLE IF EXISTS rankings CASCADE;
-DROP TABLE IF EXISTS options;
+DROP TABLE IF EXISTS options CASCADE;
 DROP TABLE IF EXISTS locations;
 
 CREATE TABLE locations (
@@ -34,7 +34,11 @@ CREATE TABLE polls (
 CREATE TABLE options (
  id SERIAL PRIMARY KEY NOT NULL,
  name VARCHAR(255) NOT NULL,
- location_id INTEGER NOT NULL REFERENCES locations(id) ON DELETE CASCADE
+ location_id INTEGER NOT NULL REFERENCES locations(id) ON DELETE CASCADE,
+ rating float,
+ price VARCHAR(255),
+ total_review integer,
+ address VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE rankings (
@@ -43,7 +47,7 @@ CREATE TABLE rankings (
 
 
 
- CREATE TABLE poll_responses (
+CREATE TABLE poll_responses (
   id  SERIAL PRIMARY KEY NOT NULL,
   poll_id INTEGER NOT NULL REFERENCES polls(id) ON DELETE CASCADE,
   option_id INTEGER NOT NULL REFERENCES options(id) ON DELETE CASCADE,
