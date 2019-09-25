@@ -4,10 +4,14 @@
 
 .pollsForm {
   // position:fixed;
+  display: flex;
+  flex-direction: column;
   flex:2 0 0;
 }
 
 .option {
+  height: auto;
+  width: 100%;
   border: solid;
   margin: 3px;
   border-radius: 15px;
@@ -40,7 +44,7 @@ textarea {
 .restaurant {
   border-radius: 15px;
   border:solid;
-  margin:5px;
+  margin:15px;
   display:flex;
 }
 
