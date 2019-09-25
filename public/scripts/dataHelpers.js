@@ -53,7 +53,7 @@ module.exports = (db) =>{
   const createPoll = function(pollData) { // CREATING THE POLL
     return db.query(`
     INSERT INTO polls(poll_string, creator_id, name, description, end_time)
-    VALUES ($1, 1, $2, $3, $4) RETURNING *;`, pollData)
+    VALUES ($1, $2, $3, $4, $5) RETURNING *;`, pollData)
 
     .then (res => {
       return res.rows[0];
@@ -92,7 +92,7 @@ module.exports = (db) =>{
 
   const passwordCheck = function(username) {
     const values = [username];
-    return db.query(` SELECT password
+    return db.query(` SELECT *
     FROM users
     WHERE username = $1;
     `, values)
