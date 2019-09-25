@@ -45,12 +45,6 @@ function onDrop(event) {
     .clearData();
 }
 
-// function ondragover(event) {
-//   const id = event
-//   .dataTranfer
-//   .getData("text")
-//   alert(id);
-// }
 
 
 

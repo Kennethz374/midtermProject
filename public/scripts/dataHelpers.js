@@ -13,7 +13,6 @@ module.exports = (db) =>{
   const firstSQL = function() {
     return db.query(`SELECT * FROM polls;`)
     .then((response) => {
-      console.log(response)
       return response.rows;
     })
   }
@@ -29,10 +28,10 @@ module.exports = (db) =>{
     GROUP BY polls.name, options.name, rankings.id;
     `)
     .then((response) => {
-      console.log(response)
       return response.rows;
     })
   }
+
 
   // const addUser =  function(user) {
   //   const values = [user.name, user.email, user.password]
@@ -46,7 +45,6 @@ module.exports = (db) =>{
     return db.query(`
       SELECT current_timestamp + ($1 ||' minutes')::interval;`, futureMins)
     .then(res => {
-      console.log(res.rows)
       return res.rows[0]
     })
   }
@@ -58,7 +56,6 @@ module.exports = (db) =>{
     VALUES ($1, 1, $2, $3, $4) RETURNING *;`, pollData)
 
     .then (res => {
-      console.log(res.rows[0]);
       return res.rows[0];
     })
   }
@@ -69,7 +66,6 @@ module.exports = (db) =>{
     FROM polls
     WHERE poll_string = $1;`, values)
     .then (res => {
-      console.log(res.rows[0]);
       return res.rows[0];
     })
   }
@@ -102,8 +98,39 @@ module.exports = (db) =>{
     `, values)
     .then (res => {
       return res.rows[0];
-    })
+    })}
 
+  const getRankings = function(shortURL) {
+    const values = [shortURL];
+    console.log("Values:", values)
+    return db.query(` SELECT polls.name, polls.description, poll_responses.name, options.name as food, poll_responses.ranking_id
+    FROM polls
+    JOIN poll_responses ON polls.id = poll_id
+    JOIN options ON options.id = option_id
+    WHERE poll_string = $1
+    GROUP BY polls.name, polls.description, poll_responses.ranking_id, poll_responses.name, options.name;`, values)
+    .then (res => {
+      console.log('getRankings:', res)
+      return res.rows[0];
+    })
+  }
+
+  const getTotalRanking = function (poll_string) {
+    const values = [poll_string];
+    return db.query(`SELECT ranking_id,
+    CASE
+      WHEN ranking_id=1 THEN sum(ranking_id)*3
+      WHEN ranking_id=2 THEN sum(ranking_id)
+      ELSE sum(ranking_id) / 3
+    END
+  FROM poll_responses
+  WHERE poll_id = 1
+  GROUP BY ranking_id
+  ORDER BY ranking_id;`)
+    .then (res => {
+      console.log('THIS', res);
+      return res.rows[0];
+    })
   }
 
 
@@ -118,7 +145,9 @@ module.exports = (db) =>{
     resultSQL,
     getActivePoll,
     futureTime,
-    passwordCheck
+    passwordCheck,
+    getTotalRanking,
+    getRankings
   }
 }
 
