@@ -94,6 +94,18 @@ module.exports = (db) =>{
     })
   }
 
+  const passwordCheck = function(username) {
+    const values = [username];
+    return db.query(` SELECT password
+    FROM users
+    WHERE username = $1;
+    `, values)
+    .then (res => {
+      return res.rows[0];
+    })
+
+  }
+
 
 // INSERT INTO polls (creator_id, name, description, end_time)
 // VALUES (1, 'billys tinder date', 'Billy got game', '2020-01-01 12:45:4.000');
@@ -105,7 +117,8 @@ module.exports = (db) =>{
     getPoll,
     resultSQL,
     getActivePoll,
-    futureTime
+    futureTime,
+    passwordCheck
   }
 }
 
