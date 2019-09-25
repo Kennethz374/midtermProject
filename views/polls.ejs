@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/styles/newPolls.css" type="text/css" />
     <link rel="stylesheet" href="/styles/andrewTest.css" type="text/css" />
     <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/drag.css" type="text/css" />
 
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -35,7 +36,7 @@
 
          <!--Header-->
 <div class="flexbox-polls-divider">
-
+  <div class="TESTING">
 <div class="pollsForm">
 
   <div>
@@ -62,13 +63,36 @@
 
         </div>
 </div>
+</div>
 
-<div ondragover="onDragOver(event);">
+<!-- <div ondragover="onDragOver(event);">
   <div id= "option1" class="option" ondrop="onDrop(event)" >
     <p>Place your restaurant here</p>
 
 </div>
+</div> -->
+
+<!-- TEST -->
+<p>Place your restaurant here</p>
+<div>
+  <div class="dropzone">
+      <div id="draggable HELP123" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+          This div is draggable
+      </div>
+  </div>
+  <div class="dropzone">
+      <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+        This div is draggable
+    </div>
+  </div>
+  <div class="dropzone"></div>
+  <div class="dropzone"></div>
+
 </div>
+
+<!-- TEST -->
+
+
 <form method="POST" action='/results/<%= poll_string %>'>
   <input type="submit" value="done"/>
   <!-- <button type="submit" value="Submit"></button>Done</button> -->
