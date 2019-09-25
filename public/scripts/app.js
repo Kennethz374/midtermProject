@@ -18,8 +18,28 @@ const renderRestaurant = function(restaurants) {
   }
 }
 
+function onDragStart(event) {
+  event
+   .dataTransfer
+   .setData("text/plain", event.target.id)
+  console.log(event.target.id);
+}
+
+function onDragOver(event) {
+  event.preventDefault();
+}
+
+// function ondragover(event) {
+//   const id = event
+//   .dataTranfer
+//   .getData("text")
+//   alert(id);
+// }
+
+
+
 const createRestaurant = function(yelpInfo) {
-  let $restaurant = $(` <div class="restaurant" >
+  let $restaurant = $(`<div id="${yelpInfo.id}" class="restaurant" draggable="true" ondragstart="onDragStart(event)" >
   <div class="resContext">
   <h5>${yelpInfo.name}<br>
   Rating:${yelpInfo.rating}<br>
