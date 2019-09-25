@@ -28,6 +28,12 @@ module.exports = (dataHelpers) => {
     res.render("index.ejs");
   })
 
+  router.post("/:poll_string", (req, res) => {
+    console.log("test");
+    //res.render("home")
+  });
+
+
 
   return router;
 

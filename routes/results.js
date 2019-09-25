@@ -2,11 +2,8 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (dataHelpers) => {
-router.get("/", (req, res) => {
-
+router.get("/:poll_string", (req, res) => {
   res.render('results');
-  // dataHelpers.resultSQL()
-  // .then(test => res.json({test}));
 });
 
 //For randomizing after the voting is completed
@@ -19,7 +16,13 @@ router.post("/", (req, res) => {
 router.delete("/", (res, req) => {
   console.log("DELETE");
   res.redirect("/polls/:id")
-})
+});
+
+router.post("/:poll_string", (req, res) => {
+
+  res.redirect("/results/" + req.params.poll_string);
+});
+
 return router;
 
 }

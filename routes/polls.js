@@ -3,24 +3,9 @@ const router  = express.Router();
 const yelp = require("yelp-fusion");
 module.exports = (dataHelpers) => {
 
-router.get("/:poll_string", (req, res) => {
-  console.log(req.params.poll_string)
 
-  dataHelpers.getActivePoll(req.params.poll_string)
-    .then ((data) => {
-      if (data.length > 0) {
-        return res.render("polls", data[0])
-      } else {
-        return res.redirect('/results');
-      }
-    })
-})
-
-
-
-// For voting
+  // For voting
 router.post("/", (req, res) => {
-  console.log(req.body);
   const client = yelp.client(process.env.YELP_API);
 
   client.search(
@@ -35,6 +20,23 @@ router.post("/", (req, res) => {
       res.send(Result);
   });
 })
+
+router.get("/:poll_string", (req, res) => {
+  console.log(req.params.poll_string)
+
+  dataHelpers.getActivePoll(req.params.poll_string)
+    .then ((data) => {
+      if (data.length > 0) {
+        return res.render("polls", data[0])
+      } else {
+        return res.redirect('/results');
+      }
+    })
+});
+
+
 return router;
 }
+
+
 
