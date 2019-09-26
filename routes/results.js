@@ -19,7 +19,7 @@ router.delete("/", (res, req) => {
 });
 
 router.post("/:poll_string", (req, res) => {
-
+  console.log("DSFASDFADFSA")
   res.redirect("/results/" + req.params.poll_string);
 });
 
