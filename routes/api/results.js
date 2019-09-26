@@ -4,6 +4,7 @@ const router  = express.Router();
 module.exports = (dataHelpers) => {
 
   router.get("/:poll_string", (req, res) => {
+    console.log('!!!!HERE!!!!!!!')
     const results = {};
     const rankPoints = {
       1: 3,

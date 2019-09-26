@@ -30,10 +30,10 @@
                     <th>Name</th>
                     <th>Description</th>
                 </tr>
-                   <td><%= Object.values(results)[0].name %></td>
-                   <td><%= Object.values(results)[0].description %></td>
-                <tr>
 
+                <tr>
+                    <td><%= Object.values(results)[0].name %></td>
+                    <td><%= Object.values(results)[0].description %></td>
 
                 </tr>
             </table>
@@ -46,20 +46,20 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <% for(let i in results) { %>
-                   <% if(results[i].hasOwnProperty('food')) { %>
-                   <td><%= results[i].food %></td>
-                   <% } %>
-                  <% } %>
-                </tr>
-                <tr>
-                    <% for(let i in results) { %>
-                     <% if(results[i].hasOwnProperty('points')) { %>
-                     <td><%= results[i].points  %></td>
-                     <% } %>
-                    <% } %>
-                  </tr>
+                    <tr>
+                        <% for(let i in results) { %>
+                         <% if(results[i].hasOwnProperty('food')) { %>
+                         <td><%= results[i].food %></td>
+                         <% } %>
+                        <% } %>
+                      </tr>
+                      <tr>
+                          <% for(let i in results) { %>
+                           <% if(results[i].hasOwnProperty('points')) { %>
+                           <td><%= results[i].points  %></td>
+                           <% } %>
+                          <% } %>
+                        </tr>
                   <tr>
 
                   </tr>

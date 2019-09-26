@@ -47,6 +47,7 @@ const createUser = function(user) {
   VALUES ($1) RETURNING *;
   `, [user])
   .then(res => {
+    console.log("HITTING THE RES")
     return res.rows[0];
   })
 }
@@ -181,6 +182,8 @@ const createUser = function(user) {
     futureTime,
     passwordCheck,
     getResults,
+    createUser,
+    verifyUser
     // getTotalRanking,
     // getRankings,
   }
