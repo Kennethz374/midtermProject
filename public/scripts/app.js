@@ -91,9 +91,6 @@ $(document).ready(function() {
     const checkValue = $("#inputHidden").val(result)
     console.log($("#inputHidden").val())
 
-
-    debugger;
-
     $("#formInsert").submit()
   })
 

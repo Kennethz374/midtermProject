@@ -66,23 +66,26 @@ router.delete("/", (res, req) => {
   res.redirect("/polls/:id")
 });
 
-router.post("/:poll_string", (req, res) => {
-  console.log("HELLOOWORLD")
-  dataHelpers.createUser("Kenneth0000")
-  .then((data)=>{
-    console.log("This is the data ID  ", data.id);
-    res.cookie("sessionUserID", data.id)
-    res.redirect("/results/"+req.params.poll_string);
+// router.post("/:poll_string", (req, res) => {
+//   console.log("HELLOOWORLD")
+//   dataHelpers.createUser("Kenneth0000")
+//   .then((data)=>{
+//     console.log(req.body, "RESULTS HERE FOR ME123")
+//     res.cookie("sessionUserID", data.id)
+//     res.redirect("/results/"+req.params.poll_string);
 
 
-  })
+//   })
+// })
 
 router.post("/:poll_string/insert", (req, res) => {
-  console.log(req.body, "RESULTS HERE FOR ME")
-  res.redirect("/results/" + req.params.poll_string);
+  console.log(req.body, "RESULTS HERE FOR ME123")
+  dataHelpers.createUser("Kenneth0000")
+  .then((data)=>{
+    res.cookie("sessionUserID", data.id)
+    res.redirect("/results/"+req.params.poll_string);
+  })
 });
-
-})
 
 return router;
 
