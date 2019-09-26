@@ -1,15 +1,23 @@
 
-// $(() => {
 
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users"
-//   }).done((users) => {
-//     for(user of users) {
-//       $("<div>").text(user.name).appendTo($("body"));
-//     }
-//   });;
-// });
+const optionsQueryBuilder = function (arrayOptions) { // need to move this into the dataHelpers
+  let queryInput = `INSERT INTO options(name, rating, price, total_reviews, address) VALUES`
+ for (let i in arrayOptions) {
+  queryInput +=  ` (`
+
+   console.log(i);
+   for (let n in arrayOptions[i]){
+     console.log(arrayOptions[i][n]);
+     queryInput += `'` + arrayOptions[i][n] + `', `
+   }
+   queryInput = queryInput.substring(0, queryInput.length - 2)
+   queryInput += `),`
+ }
+ queryInput = queryInput.substring(0, queryInput.length - 1)
+
+ return queryInput
+}
+
 
 const renderRestaurant = function(restaurants) {
   for (const restaurant of restaurants) {
@@ -23,14 +31,14 @@ const renderRestaurant = function(restaurants) {
 const createRestaurant = function(yelpInfo) {
   let $restaurant = $(`<div id="${yelpInfo.id}" class="restaurant" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
   <div class="resContext">
-  <h5>${yelpInfo.name}<br>
-  Rating:${yelpInfo.rating}<br>
-  Price ${yelpInfo.price}<br>
-  Total reviews: ${yelpInfo.review_count}<br>
-  ${yelpInfo.location.display_address}
+  <h5><span class="restaurant-name">${yelpInfo.name}</span><br>
+  <span class="restaurant-rating">Rating:${yelpInfo.rating}</span><br>
+  <span class="restaurant-price">Price ${yelpInfo.price}</span><br>
+  <span class="restaurant-reviews">Total reviews: ${yelpInfo.review_count}</span><br>
+  <span class="restaurant-address">${yelpInfo.location.display_address}</span>
   </h5>
   </div>
-  <div class="pictures" >
+  <div class="pictures">
   <img draggable="false" src= ${yelpInfo.image_url} style="height:150px; width: 200px">
   </div>
 
@@ -50,11 +58,39 @@ $(document).ready(function() {
       dataType: "json"
     }).done((data)=>{
       console.log(data);
+
       renderRestaurant(data)
     })
     $(".inputContent").val("");
     $(".restaurantContainer").empty();
   })
+
+
+
+  $("#doneRankingButton").click((event) => {
+    event.preventDefault()
+    const check = $(".traverseResults")
+    const names = check.find('.restaurant-name')
+    const rating = check.find('.restaurant-rating')
+    const price = check.find('.restaurant-price')
+    const reviews = check.find('.restaurant-reviews')
+    const address = check.find('.restaurant-address')
+
+    let result = [];
+
+    for (let par = 0; par < names.length; par++) {
+      let x = [names[par].innerHTML, rating[par].innerHTML, price[par].innerHTML, reviews[par].innerHTML, address[par].innerHTML]
+      result.push(x)
+    }
+
+    const insertQuery = optionsQueryBuilder(result)
+
+    console.log(insertQuery)
+
+
+  })
+
+
 
 
 
@@ -111,11 +147,12 @@ $(document).ready(function() {
   document.addEventListener("drop", function( event ) {
       // prevent default action (open as link for some elements)
       event.preventDefault();
+
       // move dragged elem to the selected drop target
       if ( event.target.className == "dropzone" ) {
         if (event.target.children.length > 0) {
-          console.log(origin)
-          console.log(event.target.children)
+          // console.log(origin)
+          // console.log(event.target.children)
           origin.prepend(event.target.children[0]);
         }
           event.target.style.background = "";
@@ -133,6 +170,11 @@ $(document).ready(function() {
       }
 
   }, false);
+
+
+
+
+
 
 //example restaurant data
   // {"id":"I0r8kMimYW2BY6lINcZRFA","alias":"kishimoto-japanese-kitchen-vancouver",

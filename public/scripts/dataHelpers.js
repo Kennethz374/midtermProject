@@ -134,9 +134,16 @@ module.exports = (db) =>{
     })
   }
 
+  const insertOptions = function(optionsData) {
+    return db.query(optionsData)
+    .then (result => { // I THINK SHOULD RETURN NOTHING SINCE ITS AN INSERT QUERY
+      console.log("INSERT OPTIONS COMPLETE", result.rows)
+    })
+  }
 
-// INSERT INTO polls (creator_id, name, description, end_time)
-// VALUES (1, 'billys tinder date', 'Billy got game', '2020-01-01 12:45:4.000');
+
+
+
 
   return {
     randomStringGenerator,
