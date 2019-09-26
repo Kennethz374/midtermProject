@@ -1,0 +1,27 @@
+body {
+  .results-info {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  .results-data {
+    text-align: center;
+  }
+
+  .results-name {
+    padding-left: 105px;
+  }
+
+  td {
+    line-height: 2em;
+    cursor: url('/assets/chopsticks.png'), pointer;
+  }
+
+  table {
+    color: #101357;
+    background-color: #FA8072;
+    font-size: 20px;
+  }
+
+  tr:hover {background-color: #fbaf08;
+  }
+}

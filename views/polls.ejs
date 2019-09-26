@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <title>Polls</title>
-
-
+​
+​
     <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,600,600i&display=swap" rel="stylesheet">
-
+​
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="/styles/andrewTest.css" type="text/css" />
     <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
     <link rel="stylesheet" href="/styles/drag.css" type="text/css" />
-
-
+​
+​
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-
+​
   <body>
      <!-- Top nav bar (fixed) -->
     <nav class="navigation">
@@ -33,12 +33,12 @@
         </button>
       </span>
     </nav>
-
+​
          <!--Header-->
 <div class="flexbox-polls-divider">
   <div class="TESTING">
 <div class="pollsForm">
-
+​
   <div>
       <header class="main-header">
           <table style="width:100%">
@@ -59,16 +59,16 @@
       </header>
         <div>
         <main class="container">
-
-
+​
+​
         </div>
 </div>
 </div>
-
+​
 <form id="formInsert" method="POST" action='/results/<%=poll_string%>/insert'>
 </form>
-
-
+​
+​
 <!-- TEST -->
 <p>Place your restaurant here</p>
 <div class="traverseResults">
@@ -83,21 +83,21 @@
     </div>
   </div>
   <div class="dropzone"></div>
-
+​
 </div>
-
+​
 <!-- TEST -->
-
+​
 <form method="POST" action='/results/<%= poll_string %>'>
   <input id ="doneRankingButton" type="submit" value="done"/>
 </form>
-
-
+​
+​
 </div>
-
-
-
-
+​
+​
+​
+​
       <div class="container">
         <section class="headerBlock">
           <header class="main-header">
@@ -111,11 +111,11 @@
             <input id="searchBtn" type="submit"  value= "Search">
           </section>
         <section class="restaurantContainer" ondrop="onDrop(event)">
-
+​
         </section>
       </div>
-
+​
     </div>
   </body>
-
+​
 </html>

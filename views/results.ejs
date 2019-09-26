@@ -1,78 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
+    <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
     <title>Results</title>
-
-
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/newPolls.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/results.css" type="text/css" />
 
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js">
+    </script>
+    <script type="text/javascript" src="/scripts/app.js">
+    </script>
 </head>
 
 <body>
-
     <% include partials/_header %>
 
         <div>
             <h1>RESULTS</h1>
         </div>
 
-        <main class="container results">
-            <table style="width:100%">
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                </tr>
+        <table style="width:100%" class='results-info'>
+            <tr>
+                <th class='results-name'>NAME</th>
 
-                <tr>
-                    <td><%= Object.values(results)[0].name %></td>
-                    <td><%= Object.values(results)[0].description %></td>
+                <th>DESCRIPTION</th>
+            </tr>
 
-                </tr>
-            </table>
-            <table style="width:100%">
-              <thead>
+            <tr>
+                <td class='results-name'>
+                    <%= Object.values(results)[0].name %>
+                </td>
+
+                <td class='results-description'>
+                    <%= Object.values(results)[0].description %>
+                </td>
+            </tr>
+        </table>
+
+        <table style="width:100%">
+            <thead>
                 <tr>
-                    <th scope="col">Food</th>
-                    <th>Ranking</th>
-                    <th>Percentage</th>
+                    <th class='results-food'>FOOD</th>
+
+                    <th class='results-roints'>POINTS</th>
+
+                    <th class='results-percentage'>PERCENTAGE</th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+
+            <tbody class='results-data'>
+                <% for(let i in results) { %>
+
                     <tr>
-                        <% for(let i in results) { %>
-                         <% if(results[i].hasOwnProperty('food')) { %>
-                         <td><%= results[i].food %></td>
-                         <% } %>
-                        <% } %>
-                      </tr>
-                      <tr>
-                          <% for(let i in results) { %>
-                           <% if(results[i].hasOwnProperty('points')) { %>
-                           <td><%= results[i].points  %></td>
-                           <% } %>
-                          <% } %>
-                        </tr>
-                  <tr>
+                        <% if(results[i].hasOwnProperty('food')) { %>
 
-                  </tr>
-              </tbody>
-            </table>
-        </main>
+                            <td>
+                                <%= results[i].food %>
+                            </td>
+                            <% } %>
+                                <% if(results[i].hasOwnProperty('points')) { %>
 
+                                    <td>
+                                        <%= results[i].points  %>
+                                    </td>
+                                    <% } %>
+                                        <% if(results[i].hasOwnProperty('percentage')) { %>
 
-
+                                            <td>
+                                                <%= results[i].percentage  %>
+                                            </td>
+                                            <% } %>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
 </body>
 
 </html>
-
 
 
 
