@@ -4,30 +4,50 @@ const router  = express.Router();
 module.exports = (dataHelpers) => {
 
   router.get("/:poll_string", (req, res) => {
-    res.redirect("/results")
-    console.log("================================")
-    dataHelpers.getRankings(req.params.poll_string)
-    .then((votes) => {
-      console.log("VOTES", votes)
-      dataHelpers.getTotalRanking(req.params.poll_string)
-      .then ((points) => {
-        console.log('POINTS', points)
-        const food = [];
-        const rankingId = [];
-        const totalPoints = [];
-        for (let i in votes) {
-          if (votes[i].hasOwnProperty('user') && votes[i].hasOwnProperty('ranking_id')) {
-          food.push(votes[i].food);
-          rankingId.push(votes[i].ranking_id);
-          }
-        };
-        for (let j in points) {
-          if (points[j].hasOwnProperty('ranking_id')) {
-            totalPoints.push(points[j].case)
+    const results = {};
+    const rankPoints = {
+      1: 3,
+      2: 2,
+      3: 1
+    }
+
+    dataHelpers.getResults(req.params.poll_string)
+    .then((result) => {
+      for(let res of result) {
+        let id = res.option_id;
+        if(results[id]) {
+          results[id].points += rankPoints[res.ranking] || 0;
+        } else {
+          results[id] = {
+            name: res.name,
+            ranking: res.ranking,
+            food: res.food,
+            description: res.description,
+            points: rankPoints[res.ranking]
           }
         }
-        res.redirect("/results", {food: food, totalPoints: totalPoints});
-      })
+      }
+
+
+      let sum = 0;
+      for (let i in results) {
+        if(results[i].points) {
+          sum += results[i].points;
+        }
+      }
+
+      const percentage = function (results) {
+        for(let i in results) {
+          if(results[i].points) {
+            return (Math.round((results[i].points/sum) * 100) + '%');
+          }
+        }
+      }
+
+      console.log(percentage());
+
+
+      res.render("results", {results: Object.values(results)});
     })
   });
 
@@ -35,5 +55,4 @@ module.exports = (dataHelpers) => {
   return router;
 
 }
-
 

@@ -117,38 +117,55 @@ const createUser = function(user) {
       return res.rows[0];
     })}
 
-  const getRankings = function(shortURL) {
-    const values = [shortURL];
-    console.log("Values:", values)
-    return db.query(` SELECT polls.name, polls.description, poll_responses.name as user, options.name as food, poll_responses.ranking_id
-    FROM polls
-    JOIN poll_responses ON polls.id = poll_id
-    JOIN options ON options.id = option_id
-    WHERE poll_string = $1
-    GROUP BY polls.name, polls.description, poll_responses.ranking_id, poll_responses.name, options.name;`, values)
-    .then (res => {
-      console.log('getRankings')
-      return res.rows;
-    })
+  // const getRankings = function(shortURL) {
+  //   const values = [shortURL];
+  //   // console.log("Values:", values)
+  //   return db.query(` SELECT polls.name, polls.description, poll_responses.name as user, options.name as food, poll_responses.ranking_id
+  //   FROM polls
+  //   JOIN poll_responses ON polls.id = poll_id
+  //   JOIN options ON options.id = option_id
+  //   WHERE poll_string = $1;
+  //   `, values)
+  //   .then (res => {
+  //     // console.log('getRankings')
+  //     return res.rows;
+  //   })
+  // }
+
+  // const getTotalRanking = function (poll_string) {
+  //   const values = [poll_string];
+  //   return db.query(`SELECT option_id,
+  //   CASE
+  //     WHEN ranking_id=1 THEN sum(ranking_id)*3
+  //     WHEN ranking_id=2 THEN sum(ranking_id)
+  //     ELSE sum(ranking_id) / 3
+  //   END as points
+  //   FROM poll_responses
+  //   JOIN polls ON polls.id = poll_id
+  //   WHERE poll_string = $1
+  //   GROUP BY option_id, ranking_id
+  //   ORDER BY ranking_id;`, values)
+  //   .then (res => {
+  //     // console.log('total rankings');
+  //     return res.rows;
+  //   })
+  // }
+
+  const getResults = function (poll_string) {
+     const values = [poll_string];
+     return db.query(`SELECT poll_responses.id AS response_id, options.id AS option_id, options.name as food, rankings.id as ranking, polls.name, polls.description
+     FROM poll_responses
+     INNER JOIN options
+     ON options.id = poll_responses.option_id
+     INNER JOIN polls
+     ON polls.id = poll_responses.poll_id
+     INNER JOIN rankings
+     ON rankings.id = poll_responses.ranking_id
+     WHERE polls.poll_string = $1;`, values)
+     .then (res => res.rows)
   }
 
-  const getTotalRanking = function (poll_string) {
-    const values = [poll_string];
-    return db.query(`SELECT ranking_id,
-    CASE
-      WHEN ranking_id=1 THEN sum(ranking_id)*3
-      WHEN ranking_id=2 THEN sum(ranking_id)
-      ELSE sum(ranking_id) / 3
-    END
-  FROM poll_responses
-  WHERE poll_id = 1
-  GROUP BY ranking_id
-  ORDER BY ranking_id;`)
-    .then (res => {
-      console.log('total rankings');
-      return res.rows;
-    })
-  }
+
 
 
 // INSERT INTO polls (creator_id, name, description, end_time)
@@ -163,10 +180,9 @@ const createUser = function(user) {
     getActivePoll,
     futureTime,
     passwordCheck,
-    getTotalRanking,
-    getRankings,
-    createUser,
-    verifyUser
+    getResults,
+    // getTotalRanking,
+    // getRankings,
   }
 }
 
