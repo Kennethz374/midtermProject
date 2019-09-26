@@ -29,13 +29,13 @@ VALUES
 (2, 'runarrowcasper', 'Golf Lunch', 'I like golfing when its cold out', '2020-01-01 12:45:34.000'),
 (1, 'mincedmayonaise', 'Tinder Date', 'Tinder dates need to be preplanned or I am set up for disaster', '2020-01-01 12:45:34.000');
 
-INSERT INTO options (name, location_id, rating, price, total_review, address)
+INSERT INTO options (name, location_id, rating, price, total_review, address, picture)
 VALUES
-('Sprezzatura', 1, 3.5, null, 12, '265 Kingsway, Vancouver, BC V5T 3J5, Canada'),
-('Tuc Craft Kitchen', 2, 4.5, '$$', 929, '60W Cordova Street, Vancouver, BC, V6B 1C9, Canada'),
-('The Flying Pig -Yale Town', 3, 5, '$$', 1061,'1168 Hamilton Street, Unit 104, Vancouver, BC V6B 2S2, Canada'),
-('6 Degree Eatery', 4, 4.5, '$$', 152, '1590 Coal Harbour Quay, Vancouver, BC V6G 3G1, Canada'),
-('Oyster Express', 5, 4.5, '$$', 147, '296 Keefer Street, Vancouver, BC V6A 1X5, Canada');
+('Sprezzatura', null, 'Rating:3.5', null, 'Total reviews:12', '265 Kingsway, Vancouver, BC V5T 3J5, Canada','https://s3-media1.fl.yelpcdn.com/bphoto/A5sNCPLQS8nMWBj3Sw8PyA/o.jpg'),
+('Tuc Craft Kitchen', 2, 'Rating:4.5', 'Price:$$', 'Total reviews:929', '60W Cordova Street, Vancouver, BC, V6B 1C9, Canada', 'https://s3-media4.fl.yelpcdn.com/bphoto/ZbTzB0MCGaKm_phC_esufQ/o.jpg'),
+('The Flying Pig -Yale Town', 3, 'Rating:5', 'Price:$$', 'Total reviews:1061','1168 Hamilton Street, Unit 104, Vancouver, BC V6B 2S2, Canada','https://s3-media3.fl.yelpcdn.com/bphoto/vsqRnjBzdXj-o2wBMF3HGw/o.jpg'),
+('6 Degree Eatery', 4, 'Rating:4.5', 'Price:$$', 'Total reviews:152', '1590 Coal Harbour Quay, Vancouver, BC V6G 3G1, Canada','https://s3-media4.fl.yelpcdn.com/bphoto/LiLvhOVQ_0fK-t81rV83yA/o.jpg'),
+('Oyster Express', 5, 'Rating:4.5', 'Price:$$', 'Total reviews:147', '296 Keefer Street, Vancouver, BC V6A 1X5, Canada', 'https://s3-media3.fl.yelpcdn.com/bphoto/N7CuaWvy6kwfAFUGiHrGnw/o.jpg');
 
 
 INSERT INTO rankings (id)

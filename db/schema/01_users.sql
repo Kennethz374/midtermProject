@@ -16,9 +16,9 @@ CREATE TABLE locations (
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   username VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  location_id INTEGER NOT NULL REFERENCES locations(id) ON DELETE CASCADE
+  email VARCHAR(255),
+  password VARCHAR(255),
+  location_id INTEGER REFERENCES locations(id) ON DELETE CASCADE
   );
 
 CREATE TABLE polls (
@@ -34,11 +34,12 @@ CREATE TABLE polls (
 CREATE TABLE options (
  id SERIAL PRIMARY KEY NOT NULL,
  name VARCHAR(255) NOT NULL,
- location_id INTEGER NOT NULL REFERENCES locations(id) ON DELETE CASCADE,
- rating float,
+ location_id INTEGER REFERENCES locations(id) ON DELETE CASCADE,
+ rating VARCHAR(255),
  price VARCHAR(255),
- total_review integer,
- address VARCHAR(255) NOT NULL
+ total_review VARCHAR(255),
+ address VARCHAR(255) NOT NULL,
+ picture VARCHAR(255)
 );
 
 CREATE TABLE rankings (

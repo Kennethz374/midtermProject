@@ -20,6 +20,6 @@ $(() => {
 
   $.get('/api/results')
   .done(({ test }) => appendPolls(test))
-  .catch(err => alert(err.status));
+  .catch(err => console.log(`${err}`));
 
 });

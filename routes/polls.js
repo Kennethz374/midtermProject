@@ -1,8 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 const yelp = require("yelp-fusion");
+const cookieParser = require('cookie-parser')
+router.use(cookieParser())
 module.exports = (dataHelpers) => {
-
 
   // For voting
 router.post("/", (req, res) => {
@@ -16,13 +17,15 @@ router.post("/", (req, res) => {
     .then(response => {
       const Result = response.jsonBody.businesses;
       const prettyJson = JSON.stringify(Result, null, 4);
-      console.log(`total restaurants ${Result.length}`);
       res.send(Result);
   });
 })
 
 router.get("/:poll_string", (req, res) => {
-  console.log(req.params.poll_string)
+  // console.log(`this should be the cookie number :`, req.cookies.sessionUserID);
+  // if (dataHelpers.verifyUser(req.cookies.sessionUserID)) {
+  //   res.redirect("/results/"+ req.params.poll_string);
+  // }
 
   dataHelpers.getActivePoll(req.params.poll_string)
     .then ((data) => {

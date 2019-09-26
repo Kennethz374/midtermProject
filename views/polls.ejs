@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+
     <title>Polls</title>
 
 
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,600,600i&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -13,10 +14,13 @@
     <link rel="stylesheet" href="/styles/newPolls.css" type="text/css" />
     <link rel="stylesheet" href="/styles/andrewTest.css" type="text/css" />
     <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/drag.css" type="text/css" />
+
 
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+
   </head>
 
   <body>
@@ -35,7 +39,7 @@
 
          <!--Header-->
 <div class="flexbox-polls-divider">
-
+  <div class="TESTING">
 <div class="pollsForm">
 
   <div>
@@ -47,9 +51,9 @@
                 <th>Description</th>
               </tr>
               <tr>
-                <td><%= poll_string %></td>
-                <td><%= name %></td>
-                <td><%= description %></td>
+                <td><%=poll_string %></td>
+                <td><%=name %></td>
+                <td><%=description %></td>
               </tr>
             </table>
         <div>
@@ -62,17 +66,41 @@
 
         </div>
 </div>
+</div>
 
-<div ondragover="onDragOver(event);">
+<!-- <div ondragover="onDragOver(event);">
   <div id= "option1" class="option" ondrop="onDrop(event)" >
     <p>Place your restaurant here</p>
 
 </div>
+</div> -->
+
+<!-- TEST -->
+<p>Place your restaurant here</p>
+<div>
+  <div class="dropzone">
+      <div id="draggable HELP123" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+          This div is draggable
+      </div>
+  </div>
+  <div class="dropzone">
+      <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+        This div is draggable
+    </div>
+  </div>
+  <div class="dropzone"></div>
+  <div class="dropzone"></div>
+
 </div>
+
+<!-- TEST -->
+
+
 <form method="POST" action='/results/<%= poll_string %>'>
-  <input type="submit" value="done"/>
-  <!-- <button type="submit" value="Submit"></button>Done</button> -->
+  <input type="hidden" name="hidden-input" value="hello">
+  <button type="submit">Done</button>
 </form>
+
 
 
 </div>
@@ -85,19 +113,25 @@
           <header class="main-header">
             <div>
               <h1>POLLS</h1>
+
             </div>
-          </header>
-       <div>
-            <textarea class="inputContent" placeholder="what do you want to eat?"></textarea>
-            <br>
-            <input id="searchBtn" type="submit"  value= "Search">
-          </section>
-        <section class="restaurantContainer" ondrop="onDrop(event)">
+            <div class="container">
+                <section class="headerBlock">
+                    <div>
+                        <h1>POLLS</h1>
+                    </div>
+                    <div>
+                        <textarea class="inputContent" placeholder="what do you want to eat?"></textarea>
+                        <br>
+                        <input id="searchBtn" type="submit" value="Search">
+                </section>
+                <section class="restaurantContainer" ondrop="onDrop(event)">
 
-        </section>
-      </div>
+                </section>
+                </div>
+            </div>
 
-    </div>
-  </body>
+
+</body>
 
 </html>
