@@ -8,6 +8,7 @@ router.get("/:poll_string", (req, res) => {
 
 //For randomizing after the voting is completed
 router.post("/", (req, res) => {
+  console.log(req.body)
   console.log('route');
   res.redirect('/results');
 })
@@ -18,8 +19,8 @@ router.delete("/", (res, req) => {
   res.redirect("/polls/:id")
 });
 
-router.post("/:poll_string", (req, res) => {
-  console.log("DSFASDFADFSA")
+router.post("/:poll_string/insert", (req, res) => {
+  console.log(req.body, "RESULTS HERE FOR ME")
   res.redirect("/results/" + req.params.poll_string);
 });
 

@@ -65,12 +65,11 @@
 </div>
 </div>
 
-<!-- <div ondragover="onDragOver(event);">
-  <div id= "option1" class="option" ondrop="onDrop(event)" >
-    <p>Place your restaurant here</p>
+<form id="formInsert" method="POST" action='/results/<%=poll_string%>/insert'>
+  <input id ="inputHidden" name='result[]' value="optionValues">
+  <input id ="inputHidden" type='submit' value="optionValues">
+</form>
 
-</div>
-</div> -->
 
 <!-- TEST -->
 <p>Place your restaurant here</p>

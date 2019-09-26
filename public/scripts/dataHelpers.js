@@ -135,15 +135,12 @@ module.exports = (db) =>{
   }
 
   const insertOptions = function(optionsData) {
+    console.log("PRAY TO GOD")
     return db.query(optionsData)
     .then (result => { // I THINK SHOULD RETURN NOTHING SINCE ITS AN INSERT QUERY
       console.log("INSERT OPTIONS COMPLETE", result.rows)
     })
   }
-
-
-
-
 
   return {
     randomStringGenerator,
@@ -155,7 +152,8 @@ module.exports = (db) =>{
     futureTime,
     passwordCheck,
     getTotalRanking,
-    getRankings
+    getRankings,
+    insertOptions
   }
 }
 

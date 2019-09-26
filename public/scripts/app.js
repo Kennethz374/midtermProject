@@ -5,9 +5,7 @@ const optionsQueryBuilder = function (arrayOptions) { // need to move this into 
  for (let i in arrayOptions) {
   queryInput +=  ` (`
 
-   console.log(i);
    for (let n in arrayOptions[i]){
-     console.log(arrayOptions[i][n]);
      queryInput += `'` + arrayOptions[i][n] + `', `
    }
    queryInput = queryInput.substring(0, queryInput.length - 2)
@@ -83,13 +81,27 @@ $(document).ready(function() {
       result.push(x)
     }
 
-    const insertQuery = optionsQueryBuilder(result)
+    // result = result.toString();
 
-    console.log(insertQuery)
+    console.log(result, "RESUTLTLADSFA")
 
 
+
+    // $("#formInsert").val(result)
+    const checkValue = $("#inputHidden").val(result)
+    console.log($("#inputHidden").val())
+
+
+    debugger;
+
+    $("#formInsert").submit()
   })
 
+
+  // 1. add a form to the ejs file. make it invisible to the user.
+  // 2. use jquery to populate a form field with our array of results. google how to do this
+  // 3. use jquery to submit the form.
+  // 4. receive data on our backend............
 
 
 
