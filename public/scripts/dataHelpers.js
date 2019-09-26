@@ -168,6 +168,30 @@ const createUser = function(user) {
 
 
 
+  const optionsQueryBuilder = function (arrayOptions) { // need to move this into the dataHelpers
+
+    let queryInput = `INSERT INTO options(name, rating, price, total_reviews, address) VALUES`
+   for (let i in arrayOptions) {
+    queryInput +=  ` (`
+
+     for (let n in arrayOptions[i]){
+       queryInput += `\'` + arrayOptions[i][n] + `\' , `
+
+     }
+     queryInput = queryInput.substring(0, queryInput.length - 2)
+     queryInput += `),`
+   }
+   queryInput = queryInput.substring(0, queryInput.length - 1)
+
+
+   queryInput = queryInput.replace(",", " ', '")
+
+   console.log(queryInput)
+
+   return queryInput
+  }
+
+
   const insertOptions = function(optionsData) {
     console.log("PRAY TO GOD")
     return db.query(optionsData)
@@ -188,7 +212,8 @@ const createUser = function(user) {
     getResults,
     createUser,
     verifyUser,
-    insertOptions
+    insertOptions,
+    optionsQueryBuilder
   }
 }
 

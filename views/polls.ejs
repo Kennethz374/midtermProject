@@ -66,7 +66,6 @@
 </div>
 
 <form id="formInsert" method="POST" action='/results/<%=poll_string%>/insert'>
-  <input id ="inputHidden" name='result[]' value="optionValues">
 </form>
 
 
@@ -84,16 +83,13 @@
     </div>
   </div>
   <div class="dropzone"></div>
-  <div class="dropzone"></div>
 
 </div>
 
 <!-- TEST -->
 
-
 <form method="POST" action='/results/<%= poll_string %>'>
   <input id ="doneRankingButton" type="submit" value="done"/>
-  <!-- <button type="submit" value="Submit"></button>Done</button> -->
 </form>
 
 

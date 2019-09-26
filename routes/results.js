@@ -79,11 +79,16 @@ router.delete("/", (res, req) => {
 // })
 
 router.post("/:poll_string/insert", (req, res) => {
-  console.log(req.body, "RESULTS HERE FOR ME123")
+
   dataHelpers.createUser("Kenneth0000")
   .then((data)=>{
+    // console.log(req.body.result, "HERERE!@@#")
+
+    const queryOption = dataHelpers.optionsQueryBuilder(req.body)
+    console.log(queryOption)
     res.cookie("sessionUserID", data.id)
-    res.redirect("/results/"+req.params.poll_string);
+    // res.redirect("/results/"+req.params.poll_string);
+
   })
 });
 
