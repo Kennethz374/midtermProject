@@ -54,24 +54,23 @@
 </div>
 </div>
 
-<!-- <div ondragover="onDragOver(event);">
-  <div id= "option1" class="option" ondrop="onDrop(event)" >
-    <p>Place your restaurant here</p>
+<form id="formInsert" method="POST" action='/results/<%=poll_string%>/insert'>
+  <input id ="inputHidden" name='result[]' value="optionValues">
+  <input id ="inputHidden" type='submit' value="optionValues">
+</form>
 
-</div>
-</div> -->
 
 <!-- TEST -->
 <p>Place your restaurant here</p>
-<div>
+<div class="traverseResults">
   <div class="dropzone">
-      <div id="draggable HELP123" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-          This div is draggable
+      <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+          Andrew is working on this
       </div>
   </div>
   <div class="dropzone">
       <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-        This div is draggable
+       Andrew needs help
     </div>
   </div>
   <div class="dropzone"></div>
@@ -83,8 +82,13 @@
 
 
 <form method="POST" action='/results/<%= poll_string %>'>
+<<<<<<< HEAD
   <input type="hidden" name="hidden-input" value="hello">
   <button type="submit">Done</button>
+=======
+  <input id ="doneRankingButton" type="submit" value="done"/>
+  <!-- <button type="submit" value="Submit"></button>Done</button> -->
+>>>>>>> fakedata
 </form>
 
 

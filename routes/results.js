@@ -56,6 +56,8 @@ module.exports = (dataHelpers) => {
 
 //For randomizing after the voting is completed
 router.post("/", (req, res) => {
+  console.log(req.body)
+  console.log('route');
   res.redirect('/results');
 })
 
@@ -74,9 +76,16 @@ router.post("/:poll_string", (req, res) => {
 
 
   })
+
+router.post("/:poll_string/insert", (req, res) => {
+  console.log(req.body, "RESULTS HERE FOR ME")
+  res.redirect("/results/" + req.params.poll_string);
 });
+
+})
 
 return router;
 
 }
+
 
