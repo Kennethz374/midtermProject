@@ -1,15 +1,29 @@
-.nav {
+nav {
   background: #101357;
+  height: 80px;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  padding: 1em;
   color: #fbaf08;
-  height: 50px;
-}
+ }
 
 .nav-item {
   color: #fbaf08;
 }
 
-.logout {
+.results {
   float: right;
+  margin-bottom: 0.5em;
+}
+
+.logout {
+  margin-left: 1em;
+  float: right;
+  margin-bottom: 0.5em;
 }
 
 

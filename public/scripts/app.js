@@ -120,7 +120,7 @@ $(document).ready(function() {
           event.target.appendChild( dragged );
       }
 
-      else if ( event.target.className == "TESTING") {
+      else if ( event.target.className == "poll-dropboxes") {
         // var target = $(".restaurants");
         // var target = $( event.target );
         dragged.remove();

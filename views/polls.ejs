@@ -5,8 +5,6 @@
 
     <title>Polls</title>
 
-
-
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -16,107 +14,87 @@
     <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
     <link rel="stylesheet" href="/styles/drag.css" type="text/css" />
 
-
-
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 
-  </head>
+</head>
 
-  <body>
-      <% include partials/_header %>
+<body>
+    <% include partials/_header %>
 
-<div class="flexbox-polls-divider">
-  <div class="TESTING">
-<div class="pollsForm">
+        <div class="flexbox-polls-divider">
+            <div class="poll-dropboxes">
+                <div class="pollsForm">
 
-  <div>
-          <table style="width:100%">
-              <tr>
-                <th>Poll Name</th>
-                <th>Title</th>
-                <th>Description</th>
-              </tr>
-              <tr>
-                <td><%=poll_string %></td>
-                <td><%=name %></td>
-                <td><%=description %></td>
-              </tr>
-            </table>
-        <div>
-          <h1>POLLS</h1>
-        </div>
-        <div>
-        <main class="container">
-
-
-        </div>
-</div>
-</div>
-
-<!-- <div ondragover="onDragOver(event);">
-  <div id= "option1" class="option" ondrop="onDrop(event)" >
-    <p>Place your restaurant here</p>
-
-</div>
-</div> -->
-
-<!-- TEST -->
-<p>Place your restaurant here</p>
-<div>
-  <div class="dropzone">
-      <div id="draggable HELP123" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-          This div is draggable
-      </div>
-  </div>
-  <div class="dropzone">
-      <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-        This div is draggable
-    </div>
-  </div>
-  <div class="dropzone"></div>
-  <div class="dropzone"></div>
-
-</div>
-
-<!-- TEST -->
-
-
-<form method="POST" action='/results/<%= poll_string %>'>
-  <input type="hidden" name="hidden-input" value="hello">
-  <button type="submit">Done</button>
-</form>
-
-
-
-</div>
-
-
-
-
-      <div class="container">
-        <section class="headerBlock">
-          <header class="main-header">
-            <div>
-              <h1>POLLS</h1>
-
-            </div>
-            <div class="container">
-                <section class="headerBlock">
                     <div>
-                        <h1>POLLS</h1>
+
+                        <div>
+                            <h1 class=><%= name %></h1>
+                        </div>
+                        <table style="width:100%">
+                            <tr>
+                                <th class='details'>Details</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <%=description %>
+                                </td>
+                            </tr>
+                        </table>
+                        <div>
+                            <main class="container">
+
+                        </div>
                     </div>
-                    <div>
-                        <textarea class="inputContent" placeholder="what do you want to eat?"></textarea>
-                        <br>
-                        <input id="searchBtn" type="submit" value="Search">
-                </section>
-                <section class="restaurantContainer" ondrop="onDrop(event)">
-
-                </section>
                 </div>
+                <div class='place-restaurant'>
+                <p > Place your restaurant here</p>
+              </div>
+                <div>
+                    <div class="dropzone">
+                        <div id="draggable HELP123" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                            This div is draggable
+                        </div>
+                    </div>
+                    <div class="dropzone">
+                        <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                            This div is draggable
+                        </div>
+                    </div>
+                    <div class="dropzone"></div>
+                    <div class="dropzone"></div>
+
+                </div>
+
+                <!-- TEST -->
+
+                <form method="POST" action='/results/<%= poll_string %>'>
+                    <input type="hidden" name="hidden-input" value="hello">
+                    <button type="submit">Done</button>
+                </form>
+
             </div>
 
+            <div class="container">
+                <section class="food-search">
+                        <div>
+
+                        </div>
+                        <div class="container">
+                            <section class="headerBlock">
+                                <div>
+                                    <h1>Choose Your Options</h1>
+                                </div>
+                                <div>
+                                    <textarea class="inputContent" placeholder="what do you want to eat?"></textarea>
+                                    <br>
+                                    <input id="searchBtn" type="submit" value="Search">
+                            </section>
+                            <section class="restaurantContainer" ondrop="onDrop(event)">
+
+                            </section>
+                            </div>
+                        </div>
 
 </body>
 

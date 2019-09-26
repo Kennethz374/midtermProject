@@ -7,7 +7,6 @@ module.exports = (dataHelpers) => {
 
 
   router.get("/:poll_string", (req, res) => {
-    console.log('!!!!HERE!!!!!!!')
     const results = {};
     const rankPoints = {
       1: 3,
@@ -31,26 +30,21 @@ module.exports = (dataHelpers) => {
           }
         }
       }
-
       let sum = 0;
       for (let i in results) {
         if(results[i].points) {
           sum += results[i].points;
         }
       }
-
-      const percentage = function (results) {
-        for(let i in results) {
-          if(results[i].points) {
-            return (Math.round((results[i].points/sum) * 100) + '%');
-          }
+      for(let i in results) {
+        if(results[i].points) {
+          results[i].percentage = (Math.round((results[i].points/sum) * 100) + '%');
         }
       }
 
-      console.log(percentage());
 
+        res.render("results", {results: Object.values(results)});
 
-      res.render("results", {results: Object.values(results)});
     })
   });
 
@@ -65,7 +59,6 @@ router.delete("/", (res, req) => {
 });
 
 router.post("/:poll_string", (req, res) => {
-  console.log("HELLOOWORLD")
   dataHelpers.createUser("Kenneth0000")
   .then((data)=>{
     console.log("This is the data ID  ", data.id);
