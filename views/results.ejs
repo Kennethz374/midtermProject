@@ -33,14 +33,41 @@
                 <tr>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Food</th>
-                    <th>Ranking</th>
                 </tr>
+                   <td><%= Object.values(results)[0].name %></td>
+                   <td><%= Object.values(results)[0].description %></td>
                 <tr>
-                  <%= food %>
-                  <%= totalPoints %>
+
 
                 </tr>
+            </table>
+            <table style="width:100%">
+              <thead>
+                <tr>
+                    <th scope="col">Food</th>
+                    <th>Ranking</th>
+                    <th>Percentage</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <% for(let i in results) { %>
+                   <% if(results[i].hasOwnProperty('food')) { %>
+                   <td><%= results[i].food %></td>
+                   <% } %>
+                  <% } %>
+                </tr>
+                <tr>
+                    <% for(let i in results) { %>
+                     <% if(results[i].hasOwnProperty('points')) { %>
+                     <td><%= results[i].points  %></td>
+                     <% } %>
+                    <% } %>
+                  </tr>
+                  <tr>
+
+                  </tr>
+              </tbody>
             </table>
         </main>
 
@@ -53,3 +80,7 @@
 </body>
 
 </html>
+
+
+
+

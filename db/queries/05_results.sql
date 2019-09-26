@@ -2,5 +2,5 @@
 FROM polls
 JOIN poll_responses ON polls.id = poll_id
 JOIN options ON options.id = option_id
-WHERE poll_string = 'duckduckgoose'
-GROUP BY polls.name, polls.description, poll_responses.ranking_id, poll_responses.name, options.name;
+WHERE poll_string = 'duckduckgoose';
+
