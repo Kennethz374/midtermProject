@@ -23,27 +23,10 @@
   </head>
 
   <body>
-     <!-- Top nav bar (fixed) -->
-     <nav class="navigation">
-        <span>AppTitle</span>
-        <span class="logout">
-          <form action="/results" method="GET">
-            <button type="submit" class="resultsButton" id="results-button">
-             Results
-          </button>
-          </form>
-          <form action="/login" method="GET">
 
-            <div>
-              <button type="submit" href="/login" class="btn btn-primary">Login</button>
-            </div>
-          </form>
+      <% include partials/_header %>
 
-        </span>
-      </nav>
-</head>
-
-<body>
+      <body>
         <div class="newDiv">
             <div>
                 <h1>CREATE A NEW POLL</h1>

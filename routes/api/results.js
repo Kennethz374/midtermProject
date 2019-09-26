@@ -28,7 +28,6 @@ module.exports = (dataHelpers) => {
         }
       }
 
-
       let sum = 0;
       for (let i in results) {
         if(results[i].points) {
