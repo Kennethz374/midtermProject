@@ -61,16 +61,37 @@ router.delete("/", (res, req) => {
   res.redirect("/polls/:id")
 });
 
-router.post("/:poll_string", (req, res) => {
+// router.post("/:poll_string", (req, res) => {
+//   console.log("HELLOOWORLD")
+//   dataHelpers.createUser("Kenneth0000")
+//   .then((data)=>{
+//     console.log(req.body, "RESULTS HERE FOR ME123")
+//     res.cookie("sessionUserID", data.id)
+//     res.redirect("/results/"+req.params.poll_string);
+
+
+//   })
+// })
+
+router.post("/:poll_string/insert", (req, res) => {
   dataHelpers.createUser("Kenneth0000")
   .then((data)=>{
-    res.cookie("Created", data.id)
-    res.redirect("/results/"+req.params.poll_string);
+    const values = dataHelpers.optionsQueryBuilder(req.body.result)
+    console.log(values, "VALUES");
+    dataHelpers.insertOptions(values)
+    .then((n) => {
+      for (let i in n) {
+        // console.log("poll_ID", req.body.pollId, "user_ID", n[i].id, "USERID", data.id, "ranking", (Number(i)+1))
+        const newValues = [req.body.pollId, n[i].id, data.id, (Number(i)+1)];
+        dataHelpers.insertPollResponses(newValues)
+        .then((v) => {
 
-    const queryOption = dataHelpers.optionsQueryBuilder(req.body)
-    console.log(queryOption)
-    res.cookie("sessionUserID", data.id)
-    // res.redirect("/results/"+req.params.poll_string);
+        })
+      }
+      res.cookie("Created", data.id)
+      res.redirect("/results/"+req.params.poll_string);
+    })
+
 
   })
 });

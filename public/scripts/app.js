@@ -19,8 +19,7 @@ const createRestaurant = function(yelpInfo) {
   </h5>
   </div>
   <div class="pictures">
-  <span class="restaurant-picture">
-  <img draggable="false" src= ${yelpInfo.image_url} style="height:150px; width: 200px"></span>
+  <img class="restaurant-picture" draggable="false" src="${yelpInfo.image_url}" style="height:150px; width: 200px">
   </div>
 
 </div>`);
@@ -57,18 +56,22 @@ $(document).ready(function() {
     const address = check.find('.restaurant-address')
     const picture = check.find('.restaurant-picture')
 
-    // console.log("picture", picture[0])
+    // console.log("picture", picture.attr("src"))
 
     let result = [];
+
 
     for (let par = 0; par < names.length; par++) {
       let x = [names[par].innerHTML, rating[par].innerHTML, price[par].innerHTML, reviews[par].innerHTML, address[par].innerHTML]
 
-      const $input = $(`<input id ="inputHidden" name='result[${par}][]'>`)
+      for (let index = 0; index < x.length; index++) {
+        const element = x[index];
 
-      $input.val(x)
+        const $input = $(`<input id="inputHidden" name='result[${par}][${index}]'>`)
 
-      $("#formInsert").append($input)
+        $input.val(element)
+        $("#formInsert").append($input)
+      }
 
     }
 
