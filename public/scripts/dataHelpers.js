@@ -192,9 +192,10 @@ const createUser = function(user) {
   }
 
   const insertPollResponses = function(optionsData) {
-    return db.query(`INSERT INTO (poll_id, option_id, user_id, name, ranking_id)
-    VALUES ($1, $2, $3, $4, $5);
-    `, [optionsData])
+    console.log(optionsData, "DFSFADFAS")
+    return db.query(`INSERT INTO poll_responses (poll_id, option_id, user_id, ranking_id)
+    VALUES ($1, $2, $3, $4)
+    `, optionsData)
   }
 
   return {

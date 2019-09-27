@@ -81,13 +81,16 @@ router.post("/:poll_string/insert", (req, res) => {
   dataHelpers.createUser("Kenneth0000")
   .then((data)=>{
     const values = dataHelpers.optionsQueryBuilder(req.body.result)
-    console.log(values);
+    console.log(values, "VALUES");
     dataHelpers.insertOptions(values)
     .then((n) => {
       for (let i in n) {
-        console.log("poll_ID","user_ID", n[i].id, "USERID", data.id, "ranking", (Number(i)+1))
+        // console.log("poll_ID", req.body.pollId, "user_ID", n[i].id, "USERID", data.id, "ranking", (Number(i)+1))
+        const newValues = [req.body.pollId, n[i].id, data.id, (Number(i)+1)];
+        dataHelpers.insertPollResponses(newValues)
+        .then((v) => {
 
-        // dataHelpers.insertPollResponses(newValues)
+        })
       }
       res.cookie("sessionUserID", data.id)
       res.redirect("/results/"+req.params.poll_string);
