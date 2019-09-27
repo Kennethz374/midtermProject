@@ -22,16 +22,24 @@ router.post("/", (req, res) => {
 })
 
 router.get("/:poll_string", (req, res) => {
-  // console.log(`this should be the cookie number :`, req.cookies.sessionUserID);
-  // if (dataHelpers.verifyUser(req.cookies.sessionUserID)) {
-  //   res.redirect("/results/"+ req.params.poll_string);
+  if (req.cookies.Created) {
+    res.redirect("/results/"+ req.params.poll_string);
+  }
+  // else {
+  //   dataHelpers.getPollResponses(req.params.poll_string)
+  //   .then((data)=> {
+  //     return res.render('polls', data);
+  //   })
   // }
+
+
 
   dataHelpers.getActivePoll(req.params.poll_string)
     .then ((data) => {
       if (data.length > 0) {
-        return res.render("polls", data[0])
-      } else {
+        return res.render("polls",data[0]);
+      }
+      else {
         return res.redirect('/results');
       }
     })

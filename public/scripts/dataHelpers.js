@@ -51,6 +51,23 @@ const createUser = function(user) {
     return res.rows[0];
   })
 }
+
+const getPollResponses = function(poll_string) {
+  return db.query(`SELECT DISTINCT options.name AS restaurant,
+  options.price AS Price,
+  options.rating AS Rating,
+  options.total_review AS Total_Review,
+  options.address AS address,
+  options.picture AS Picture,
+  polls.name
+  FROM poll_responses
+  JOIN options ON option_id = options.id
+  JOIN polls ON polls.id = poll_id
+  WHERE poll_string = $1;`, [poll_string])
+  .then(res => {
+    return res.rows[0];
+  })
+}
   // const addUser =  function(user) {
   //   const values = [user.name, user.email, user.password]
   //   return db.pool.query(`INSERT INTO users(name, email, password)
@@ -213,7 +230,10 @@ const createUser = function(user) {
     createUser,
     verifyUser,
     insertOptions,
-    optionsQueryBuilder
+    optionsQueryBuilder,
+    getPollResponses
+    // getTotalRanking,
+    // getRankings,
   }
 }
 
