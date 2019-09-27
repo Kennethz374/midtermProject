@@ -23,7 +23,7 @@
   <body id='polls'>
      <!-- Top nav bar (fixed) -->
     <nav class="navigation">
-      <span>AppTitle</span>
+      <span>PollEatin</span>
       <span class="logout">
         <button type="button" class="resultsButton">
           Results
@@ -42,18 +42,14 @@
   <div>
       <header class="main-header">
           <table style="width:100%">
+              <h1><%= name %></h1>
               <tr>
-                <th>Title</th>
-                <th>Description</th>
+                <th>Details</th>
               </tr>
               <tr>
-                <td><%= name %></td>
                 <td><%= description %></td>
               </tr>
             </table>
-        <div>
-          <h1><%= poll_string %></h1>
-        </div>
       </header>
         <div>
         <main class="container">
@@ -93,7 +89,7 @@
 ​
 ​
 ​
-      <div class="container">
+      <div class="container" id='polls-right-column'>
         <section class="headerBlock">
           <header class="main-header">
             <div>
