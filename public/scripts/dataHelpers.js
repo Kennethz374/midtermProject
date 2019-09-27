@@ -208,7 +208,6 @@ const getPollResponses = function(poll_string) {
   }
 
   const insertPollResponses = function(optionsData) {
-    console.log(optionsData, "DFSFADFAS")
     return db.query(`INSERT INTO poll_responses (poll_id, option_id, user_id, ranking_id)
     VALUES ($1, $2, $3, $4)
     `, optionsData)

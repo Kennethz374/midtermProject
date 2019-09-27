@@ -51,8 +51,7 @@ module.exports = (dataHelpers) => {
 
 //For randomizing after the voting is completed
 router.post("/", (req, res) => {
-  console.log(req.body)
-  console.log('route');
+
   res.redirect('/results');
 })
 
@@ -77,7 +76,6 @@ router.post("/:poll_string/insert", (req, res) => {
   dataHelpers.createUser("Kenneth0000")
   .then((data)=>{
     const values = dataHelpers.optionsQueryBuilder(req.body.result)
-    console.log(values, "VALUES");
     dataHelpers.insertOptions(values)
     .then((n) => {
       for (let i in n) {
