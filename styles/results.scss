@@ -8,7 +8,7 @@ body {
   }
 
   .results-name {
-    padding-left: 105px;
+    padding-left: 115px;
   }
 
   td {
@@ -20,6 +20,9 @@ body {
     color: #101357;
     background-color: #FA8072;
     font-size: 20px;
+    .results-table-one {
+      text-align: center;
+    }
   }
 
   tr:hover {background-color: #fbaf08;
