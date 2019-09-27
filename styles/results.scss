@@ -11,6 +11,11 @@ body {
     padding-left: 115px;
   }
 
+  .results-table {
+    width: 70%;
+    margin: 0 auto;
+  }
+
   td {
     line-height: 2em;
     cursor: url('/assets/chopsticks.png'), pointer;
