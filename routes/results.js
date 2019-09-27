@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser')
 router.use(cookieParser())
 
 module.exports = (dataHelpers) => {
-
+//  console.log( "we are hiting this NOT API route")
 router.get("/:poll_string", (req, res) => {
   res.render('results');
 });
@@ -22,8 +22,7 @@ router.delete("/", (res, req) => {
 router.post("/:poll_string", (req, res) => {
   dataHelpers.createUser("Kenneth0000")
   .then((data)=>{
-    console.log("This is the data ID  ", data.id);
-    res.cookie("sessionUserID", data.id)
+    res.cookie("Created", data.id)
     res.redirect("/results/"+req.params.poll_string);
 
 

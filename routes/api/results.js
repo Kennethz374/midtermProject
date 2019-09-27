@@ -3,6 +3,7 @@ const router  = express.Router();
 
 module.exports = (dataHelpers) => {
 
+  console.log('we are hiting api route')
   router.get("/:poll_string", (req, res) => {
     const results = {};
     const rankPoints = {
@@ -42,12 +43,12 @@ module.exports = (dataHelpers) => {
           }
         }
       }
-
       console.log(percentage());
 
-
       res.render("results", {results: Object.values(results)});
+
     })
+
   });
 
 
