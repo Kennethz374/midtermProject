@@ -32,7 +32,12 @@ module.exports = (dataHelpers) => {
   })
 
   router.get("/", (req, res) => {
-    res.render("index.ejs");
+    if (req.cookies.sessionUserID) {
+      res.render("index.ejs");
+    } else {
+      res.redirect("/login");
+    }
+
   })
 
   router.post("/:poll_string", (req, res) => {

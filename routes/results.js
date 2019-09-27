@@ -48,6 +48,7 @@ module.exports = (dataHelpers) => {
     })
   });
 
+
 //For randomizing after the voting is completed
 router.post("/", (req, res) => {
   console.log(req.body)
@@ -63,7 +64,8 @@ router.delete("/", (res, req) => {
 router.post("/:poll_string", (req, res) => {
   dataHelpers.createUser("Kenneth0000")
   .then((data)=>{
-    // console.log(req.body.result, "HERERE!@@#")
+    res.cookie("Created", data.id)
+    res.redirect("/results/"+req.params.poll_string);
 
     const queryOption = dataHelpers.optionsQueryBuilder(req.body)
     console.log(queryOption)
