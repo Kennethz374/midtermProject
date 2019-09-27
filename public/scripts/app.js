@@ -61,14 +61,20 @@ $(document).ready(function() {
 
     let result = [];
 
+
     for (let par = 0; par < names.length; par++) {
       let x = [names[par].innerHTML, rating[par].innerHTML, price[par].innerHTML, reviews[par].innerHTML, address[par].innerHTML]
 
-      const $input = $(`<input id ="inputHidden" name='result[${par}][]'>`)
+      console.log(x, "XXX")
 
-      $input.val(x)
+      for (let index = 0; index < x.length; index++) {
+        const element = x[index];
 
-      $("#formInsert").append($input)
+        const $input = $(`<input id="inputHidden" name='result[${par}][${index}]'>`)
+
+        $input.val(element)
+        $("#formInsert").append($input)
+      }
 
     }
 

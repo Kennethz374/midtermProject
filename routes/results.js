@@ -7,7 +7,6 @@ module.exports = (dataHelpers) => {
 
 
   router.get("/:poll_string", (req, res) => {
-    console.log('!!!!HERE!!!!!!!')
     const results = {};
     const rankPoints = {
       1: 3,
@@ -79,15 +78,21 @@ router.delete("/", (res, req) => {
 // })
 
 router.post("/:poll_string/insert", (req, res) => {
-
   dataHelpers.createUser("Kenneth0000")
   .then((data)=>{
-    // console.log(req.body.result, "HERERE!@@#")
+    const values = dataHelpers.optionsQueryBuilder(req.body.result)
+    console.log(values);
+    dataHelpers.insertOptions(values)
+    .then((n) => {
+      for (let i in n) {
+        console.log("poll_ID","user_ID", n[i].id, "USERID", data.id, "ranking", (Number(i)+1))
 
-    const queryOption = dataHelpers.optionsQueryBuilder(req.body)
-    console.log(queryOption)
-    res.cookie("sessionUserID", data.id)
-    // res.redirect("/results/"+req.params.poll_string);
+        // dataHelpers.insertPollResponses(newValues)
+      }
+      res.cookie("sessionUserID", data.id)
+      res.redirect("/results/"+req.params.poll_string);
+    })
+
 
   })
 });

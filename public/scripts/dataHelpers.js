@@ -47,17 +47,10 @@ const createUser = function(user) {
   VALUES ($1) RETURNING *;
   `, [user])
   .then(res => {
-    console.log("HITTING THE RES")
     return res.rows[0];
   })
 }
-  // const addUser =  function(user) {
-  //   const values = [user.name, user.email, user.password]
-  //   return db.pool.query(`INSERT INTO users(name, email, password)
-  //   VALUES ($1, $2, $3) RETURNING *`, values)
-  //   .then (res => {
-  //     return res.rows[0];
-  //   })
+
 
   const futureTime = function(futureMins) {
     return db.query(`
@@ -170,12 +163,12 @@ const createUser = function(user) {
 
   const optionsQueryBuilder = function (arrayOptions) { // need to move this into the dataHelpers
 
-    let queryInput = `INSERT INTO options(name, rating, price, total_reviews, address) VALUES`
+    let queryInput = `INSERT INTO options(name, rating, price, total_review, address) VALUES`
    for (let i in arrayOptions) {
     queryInput +=  ` (`
 
      for (let n in arrayOptions[i]){
-       queryInput += `\'` + arrayOptions[i][n] + `\' , `
+       queryInput += `'` + arrayOptions[i][n] + `' , `
 
      }
      queryInput = queryInput.substring(0, queryInput.length - 2)
@@ -183,21 +176,25 @@ const createUser = function(user) {
    }
    queryInput = queryInput.substring(0, queryInput.length - 1)
 
+   queryInput += ` RETURNING *;`
 
-   queryInput = queryInput.replace(",", " ', '")
 
-   console.log(queryInput)
 
    return queryInput
   }
 
 
   const insertOptions = function(optionsData) {
-    console.log("PRAY TO GOD")
     return db.query(optionsData)
-    .then (result => { // I THINK SHOULD RETURN NOTHING SINCE ITS AN INSERT QUERY
-      console.log("INSERT OPTIONS COMPLETE", result.rows)
+    .then (result => {
+      return result.rows;
     })
+  }
+
+  const insertPollResponses = function(optionsData) {
+    return db.query(`INSERT INTO (poll_id, option_id, user_id, name, ranking_id)
+    VALUES ($1, $2, $3, $4, $5);
+    `, [optionsData])
   }
 
   return {
@@ -213,7 +210,8 @@ const createUser = function(user) {
     createUser,
     verifyUser,
     insertOptions,
-    optionsQueryBuilder
+    optionsQueryBuilder,
+    insertPollResponses
   }
 }
 
