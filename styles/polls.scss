@@ -27,7 +27,6 @@ textarea {
   display:flex;
   flex-direction: column;
   align-items: center;
-  margin:30px;
 }
 
 .headerBlock {
@@ -35,10 +34,12 @@ textarea {
   display:flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 80px;
 }
 .restaurantContainer {
   display:flex;
   flex-direction: column;
+  margin-left: 80px
 }
 
 .restaurant {
@@ -72,7 +73,6 @@ textarea {
 
 
 #polls {
-  line-height: 2em;
   cursor: url('/assets/firstChop.png'), pointer;
 }
 
@@ -81,7 +81,7 @@ textarea {
 }
 
 .TESTING {
-  margin-left: 13em;
+  margin-left: 2em;
 }
 
 .restaurantContainer {
@@ -90,9 +90,25 @@ textarea {
 
 #polls-right-column {
   margin-right: 5em;
+  margin-top: 3em;
 }
 
-.main-header {
-  width: 50%;
-  scroll-padding-right: 0px;
+
+.marginMove {
+  margin-left: 6px;
+}
+
+.restaurant-picture {
+  margin: 15px;
+  height:150px;
+  width: 200px;
+}
+
+.PlaceText{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.topMargin {
+  margin-top: 10%;
 }

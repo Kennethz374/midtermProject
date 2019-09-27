@@ -11,7 +11,7 @@ const renderRestaurant = function(restaurants) {
 const createRestaurant = function(yelpInfo) {
   let $restaurant = $(`<div id="${yelpInfo.id}" class="restaurant" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
   <div class="resContext">
-  <h5><span class="restaurant-name">${yelpInfo.name}</span><br>
+  <h5 class="marginMove"><span class="restaurant-name">${yelpInfo.name}</span><br>
   <span class="restaurant-rating">Rating:${yelpInfo.rating}</span><br>
   <span class="restaurant-price">Price ${yelpInfo.price}</span><br>
   <span class="restaurant-reviews">Total reviews: ${yelpInfo.review_count}</span><br>
@@ -19,7 +19,7 @@ const createRestaurant = function(yelpInfo) {
   </h5>
   </div>
   <div class="pictures">
-  <img class="restaurant-picture" draggable="false" src="${yelpInfo.image_url}" style="height:150px; width: 200px">
+  <img class="restaurant-picture" draggable="false" src="${yelpInfo.image_url}">
   </div>
 
 </div>`);

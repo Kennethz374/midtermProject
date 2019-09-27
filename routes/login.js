@@ -11,6 +11,13 @@ router.get("/", (req, res) => {
   res.render("login.ejs")
 })
 
+router.get("/logout", (req, res) => {
+  res.clearCookie("sessionUserID")
+  res.clearCookie("Created")
+  res.redirect("/login")
+
+})
+
 //Fro loggining to the page
 router.post("/", (req, res) => {
   dataHelpers.passwordCheck(req.body.login)
