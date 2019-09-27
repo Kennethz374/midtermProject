@@ -7,8 +7,6 @@ body {
     text-align: center;
   }
 
-
-
   .results-name {
     padding-left: 115px;
   }
@@ -16,6 +14,10 @@ body {
   .results-table {
     width: 70%;
     margin: 0 auto;
+  }
+
+  #first-result-table {
+    border-bottom: 25px solid #fbaf08;
   }
 
   td {
