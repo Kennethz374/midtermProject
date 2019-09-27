@@ -23,13 +23,23 @@
 </head>
 
 <body>
-    <% include partials/_header %>
+    <header>
+        <nav class="navbar">
+          AppName
+          <button class="logout" type="button">
+              LOGOUT
+          </button>
+          <button class="results" type="button">
+              RESULTS
+          </button>
+        </nav>
+      </header>
 
         <div>
             <h1>RESULTS</h1>
         </div>
 
-        <table style="width:100%" class='results-info'>
+        <table class='results-info' class='results-table'>
             <tr>
                 <th class='results-name'>NAME</th>
 
@@ -47,7 +57,7 @@
             </tr>
         </table>
 
-        <table style="width:100%">
+        <table  class='results-table'>
             <thead>
                 <tr>
                     <th class='results-food'>FOOD</th>

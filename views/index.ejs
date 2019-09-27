@@ -15,26 +15,35 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/redirection.js"></script>
+
   </head>
 
   <body>
 
-      <% include partials/_header %>
-</head>
+      <header>
+          <nav class="navbar">
+            AppName
+            <button class="logout" type="button">
+                LOGOUT
+            </button>
+            <button class="results" type="button">
+                RESULTS
+            </button>
+          </nav>
+        </header>
 
-      <body>
         <div class="newDiv">
             <div>
                 <h1>CREATE A NEW POLL</h1>
             </div>
             <main class="container">
+              <section class='new-poll-input'>
                 <form class="poll-form-name" action="/home" method="POST">
-                    <h4>Title:</h4>
+                    <h4 class='results-table-one'>Title:</h4>
                     <br>
                     <textarea name="title" placeholder="name" class="pollForm"></textarea>
                     <section class="new-poll-description"></section>
-                    <h4>Description:</h4>
+                    <h4 class='results-table-one'>Description:</h4>
                     <br>
                     <textarea name="description" placeholder="description" class="pollForm"></textarea>
                     </section>
@@ -54,13 +63,16 @@
                         </select>
                         <br>
                         <br>
-                </form>
+
                 <input type="submit" value="SUBMIT">
+              </form>
                 </section>
+              </section>
                 <br>
             </main>
         </div>
         </div>
 </body>
+<script type="text/javascript" src="/scripts/redirection.js"></script>
 
 </html>
