@@ -8,7 +8,7 @@ body {
   }
 
   .results-name {
-    padding-left: 115px;
+    padding-left: 80px;
   }
 
   .results-table {
@@ -17,12 +17,20 @@ body {
   }
 
   #first-result-table {
-    border-bottom: 25px solid #fbaf08;
+    border-bottom: 25px solid #fbaf08 ;
+    th {
+      background-color: #fbaf08;
+    }
   }
+
 
   td {
     line-height: 2em;
-    cursor: url('/assets/chopsticks.png'), pointer;
+    cursor: url('/assets/firstChop.png'), pointer;
+  }
+
+  td:active {
+    cursor: url('/assets/secondChop.png'), pointer;
   }
 
   table {

@@ -70,6 +70,12 @@ textarea {
   text-align: center;
 }
 
-.container {
-  margin-top: 0px;
+
+#polls {
+  line-height: 2em;
+  cursor: url('/assets/firstChop.png'), pointer;
+}
+
+#polls:active {
+  cursor: url('/assets/secondChop.png'), pointer;
 }
