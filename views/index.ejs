@@ -22,10 +22,12 @@
 
       <header>
           <nav class="navbar">
-            Polleat!
-            <button class="logout" type="button">
+              <div class='pollEat'>PollEat!</div>
+            <form method="GET" action="/login/logout">
+            <button class="logout" type="submit">
                 LOGOUT
             </button>
+          </form>
             <button class="results" type="button">
                 RESULTS
             </button>
@@ -34,7 +36,7 @@
 
         <div class="newDiv">
             <div>
-                <h1>CREATE A NEW POLL</h1>
+                <h1 class='create-a-new-poll'>CREATE A NEW POLL</h1>
             </div>
             <main class="container">
               <section class='new-poll-input'>

@@ -1,6 +1,6 @@
 nav {
   background: #101357;
-  height: 70px;
+  height: 100px;
   position: fixed;
   width: 100vw;
   top: 0;
@@ -18,16 +18,23 @@ nav {
 .results {
   float: right;
   margin-bottom: 0.5em;
-  padding-bottom: 8px;
-  padding-top: 8px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  transform: translateY(-50px);
 }
 
 .logout {
   margin-left: 1em;
   float: right;
   margin-bottom: 0.5em;
-  padding-bottom: 8px;
-  padding-top: 8px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  transform: translateY(-50px);
+}
+
+.pollEat {
+  font-size: 50px;
+  width: 30%
 }
 
 
